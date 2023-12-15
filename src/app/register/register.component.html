@@ -1,1 +1,51 @@
-<p>register works!</p>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">Register</div>
+        <div class="card-body">
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input type="text"
+                     class="form-control"
+                     id="username"
+                     placeholder="Enter your username"
+                     formControlName="username">
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email"
+                     class="form-control"
+                     id="email"
+                     placeholder="Enter your email"
+                     formControlName="email">
+            </div>
+            <div [formGroupName]="'passwords'">
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  placeholder="Enter your password"
+                  formControlName="password">
+              </div>
+              <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="confirmPassword"
+                  placeholder="Confirm your password"
+                  formControlName="confirm">
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Register</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
