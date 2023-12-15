@@ -24,7 +24,7 @@
               "src/favicon.ico",
               "src/assets",
               "src/web.config",
-              "staticwebapp.config.json"
+              "src/staticwebapp.config.json"
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.css",
