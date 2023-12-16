@@ -13,17 +13,30 @@
       <div class="card">
         <div class="card-header">Login</div>
         <div class="card-body">
-          <form>
+          <form [formGroup] = "loginForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
               <label for="username">Username</label>
-              <input type="text" class="form-control" id="username" placeholder="Enter your username">
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                placeholder="Enter your username"
+                formControlName="username">
             </div>
             <div class="form-group">
               <label for="password">Password</label>
-              <input type="password" class="form-control" id="password" placeholder="Enter your password">
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                placeholder="Enter your password"
+                formControlName="password">
             </div>
             <div class="row" style="margin-top: 20px;">
-              <button type="button" class="btn btn-primary col-4" (click)="onLoginClick()">Login</button>
+              <button
+                type="submit"
+                class="btn btn-primary col-4"
+                [disabled]="!loginForm.valid">Login</button>
               <button type="button" class="btn btn-primary col-4" (click)="onRegisterClick()">Register</button>
               <p class="col-4">Forgot password ?</p>
             </div>

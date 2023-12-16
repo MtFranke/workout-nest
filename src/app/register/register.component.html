@@ -4,7 +4,7 @@
       <div class="card">
         <div class="card-header">Register</div>
         <div class="card-body">
-          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <form *ngIf="!successfullyRegistered" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
             <div class="mb-3">
               <label for="username" class="form-label">Username</label>
               <input type="text"
@@ -44,6 +44,17 @@
 
             <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Register</button>
           </form>
+          <div *ngIf="successfullyRegistered">
+            <p>Dear {{username}}</p>
+            <p>
+              Congratulations and welcome to Workout-Nest! We are thrilled to have you on board.
+            </p>
+            <p>
+              Thank you for choosing us to be part of your journey.
+              Your new account is now active, and you have successfully joined our growing community of home workout rats.
+            </p>
+            <button class="btn btn-success" (click)="onGotoDashboard()">Go to Dashboard</button>
+          </div>
         </div>
       </div>
     </div>
