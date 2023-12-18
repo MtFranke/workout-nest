@@ -1,7 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HttpClient, HttpClientModule, provideHttpClient, withInterceptors} from "@angular/common/http";
+import {httpTokenAuthInterceptor} from "../../interceptors/token-auth.interceptor";
+import {JwtHelperService} from "@auth0/angular-jwt";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-login',
@@ -9,7 +12,7 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
   imports: [
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
@@ -17,8 +20,7 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 export class LoginComponent implements OnInit{
 
   public loginForm: FormGroup | any;
-
-  constructor(private router: Router, private http: HttpClient) {
+  constructor(private router: Router, private http: HttpClient, private authService: AuthService) {
 
   }
 
@@ -36,17 +38,19 @@ export class LoginComponent implements OnInit{
 
   onSubmit() {
 
-    const url = 'https://workoutnest.azurewebsites.net/auth/login';
-    // const url = 'http://localhost:5213/auth/register';
+    //const url = 'https://workoutnest.azurewebsites.net/auth/login';
+    const url = 'http://localhost:5213/auth/login';
     const payload = {
       'username' : this.loginForm.value['username'],
       'password' : this.loginForm.value['password']
     }
 
-    this.http.post(url, payload)
+    this.http.post<{accessToken: string }>(url, payload)
       .subscribe(
         (x) => {
-          console.log(x);
+          const token  = x.accessToken;
+          console.log(token);
+          this.authService.setAccessToken(token);
           this.router.navigate(['dashboard']);
         })
   }
