@@ -14,6 +14,7 @@ export const authGuard : CanActivateFn = ( route: ActivatedRouteSnapshot,
     return true;
   }
 
+  alert('No active session found. Please log in again to continue.');
   // Redirect to the login page
   return router.parseUrl('/login');
 };
