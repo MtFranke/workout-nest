@@ -1,23 +1,9 @@
 <app-header></app-header>
-<h1>Workout Nest</h1>
-<div class="container">
-  <div class="row">
-    <div class="col-6 tile" style="background-color: aliceblue;">
-      <div style="background-color: grey; justify-content: flex-end;">Just Start!</div>
-    </div>
-    <div class="col-6 tile" style="background-color: aliceblue;">
-     Feed
-    </div>
+<div class="x-container" style="margin-top: 200px">
+  <div class="tile tile-flex-container" (click)="onWorkoutsClick()">
+    <p>Workouts</p>
   </div>
-  <div class="row">
-    <div class="col-6 tile" style="background-color: aliceblue;">
-      Exercises
-    </div>
-    <div class="col-6 tile" style="background-color: aliceblue;">
-      Workouts
-    </div>
+  <div class="tile tile-flex-container">
+   <p>Train</p>
   </div>
-
 </div>
-
-<app-footer></app-footer>
