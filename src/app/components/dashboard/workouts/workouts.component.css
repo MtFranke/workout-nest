@@ -1,0 +1,30 @@
+.workout-schema-tile{
+  display: flex;
+  background-color: white;
+  width: 300px;
+  height: 75px;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  border: solid 1px black;
+  cursor: pointer;
+}
+
+.x-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+}
+
+.outer-container {
+  display: flex;
+  justify-content: center;
+  gap: 200px;
+}
+
+.workouts-new{
+  border: 1px solid black;
+}

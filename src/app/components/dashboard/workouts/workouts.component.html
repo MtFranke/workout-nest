@@ -1,5 +1,19 @@
 <app-header></app-header>
-<div>
-  <div>Create new</div>
-  <div></div>
+<div class="outer-container" style="margin-top: 120px;">
+  <div class="workouts-new ">
+    <h4>Workouts</h4>
+    <button class="btn btn-primary">New</button>
+  </div>
+  <div class="x-container">
+    <div *ngFor="let x of workoutsSchema;index as i;" class="workout-schema-tile" (click)="onWorkoutClick(i)">
+      <p>{{x.name}}</p>
+    </div>
+  </div>
+  <div *ngIf="showWorkoutExercises">
+    <h4>{{workoutSchema.name}}</h4>
+    <div *ngFor="let ex of workoutSchema.exercisesId;">
+      <p>{{ex}}</p>
+      <button class="btn btn-success" type="button" (click)="onTrainClick(workoutSchema.name)">Train</button>
+    </div>
+  </div>
 </div>
