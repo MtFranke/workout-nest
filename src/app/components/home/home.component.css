@@ -7,7 +7,8 @@
 
 .menu {
   background-color: #ffffff;
-  display: flex;
+  display: grid;
+  grid-template-columns: 75px auto 200px;
 
 }
 
@@ -35,6 +36,7 @@ section {
   grid-column: 1/13;
   grid-row: 2 / span 1; /* Updated line */
   /* Additional styles if needed */
+
 }
 
 .btn{
@@ -54,13 +56,14 @@ section {
 }
 
 .language-panel{
-  flex-grow: 1;
   width: 200px;
   background-color: dimgrey;
   display: flex;
+
 }
 
 .buttons{
-  flex: 2;
-  background-color: rebeccapurple;
+  justify-self: end;
+  align-self: center;
+  margin-right: 20px;
 }
