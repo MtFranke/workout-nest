@@ -1,0 +1,66 @@
+.grid-container {
+  display: grid;
+  grid-template-rows: 300px 200px 200px;
+  grid-template-columns: repeat(12,1fr);
+}
+
+
+.menu {
+  background-color: #ffffff;
+  display: flex;
+
+}
+
+.menu-background-img{
+  background-color: #000000;
+  grid-column: 1/13;
+  grid-row: 1/ 1;
+
+}
+
+.logo{
+  height: 50px;
+  width: 50px;
+  background-color: aqua;
+  flex: 5;
+}
+
+.footer{
+  grid-column: 1/13;
+  grid-row: 3/4; /* Updated line */
+  background-color: dimgrey;
+}
+
+section {
+  grid-column: 1/13;
+  grid-row: 2 / span 1; /* Updated line */
+  /* Additional styles if needed */
+}
+
+.btn{
+  width: 100px;
+  height: 35px;
+}
+
+.icon{
+  height: 30px;
+  display: block;
+
+}
+.icon-small{
+  height: 15px;
+  display: block;
+
+}
+
+.language-panel{
+  flex-grow: 1;
+  width: 200px;
+  background-color: dimgrey;
+  display: flex;
+}
+
+.buttons{
+  flex: 2;
+  background-color: rebeccapurple;
+}
