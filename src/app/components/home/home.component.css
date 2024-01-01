@@ -1,6 +1,6 @@
 .grid-container {
   display: grid;
-  grid-template-rows: 300px 200px 200px;
+  grid-template-rows: 300px auto auto 200px;
   grid-template-columns: repeat(12,1fr);
 }
 
@@ -13,7 +13,7 @@
 }
 
 .menu-background-img{
-  background-color: #000000;
+  background-color: #727272;
   grid-column: 1/13;
   grid-row: 1/ 1;
 
@@ -22,22 +22,17 @@
 .logo{
   height: 50px;
   width: 50px;
-  background-color: aqua;
-  flex: 5;
+  cursor: pointer;
+  text-align: center;
 }
 
 .footer{
   grid-column: 1/13;
-  grid-row: 3/4; /* Updated line */
-  background-color: dimgrey;
+  grid-row: 4/5; /* Updated line */
+  background-color: #2d2d2d;
 }
 
-section {
-  grid-column: 1/13;
-  grid-row: 2 / span 1; /* Updated line */
-  /* Additional styles if needed */
 
-}
 
 .buttons{
   justify-self: end;
@@ -48,6 +43,7 @@ section {
 .btn{
   width: 100px;
   height: 35px;
+  cursor: pointer;
 }
 
 .icon{
@@ -64,8 +60,8 @@ section {
 .language-panel{
   width: 200px;
   display: flex;
-  gap: 5px;
   justify-content: flex-start;
+  margin-left: 20px;
 
 }
 
@@ -79,12 +75,14 @@ section {
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  margin-left: 10px;
 
 }
 
 span{
   align-self: center;
   font-size: 12px;
+  font-weight: bold;
 }
 
 .language-icon{
@@ -94,4 +92,75 @@ span{
 
 .language-panel__arrow-icon{
   align-self: center;
+  display: block;
+  height: 20px;
+  cursor: pointer;
+}
+
+
+.devices{
+  grid-column: 1/13;
+  grid-row: 3/4; /* Updated line */
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100px 200px;
+  justify-items: center;
+  background: white;
+}
+
+.devices-title{
+  align-self: center;
+}
+
+.devices-items{
+  align-self: center;
+  display: grid;
+  grid-template-columns: repeat(3,33%);
+  gap: 20px;
+
+}
+
+.devices-item{
+  height: 100px;
+  width: 100px;
+  background-color: wheat;
+  display: grid;
+  justify-content: center;
+}
+
+
+.why-this-app{
+  display: grid;
+  grid-column: 1/13;
+  grid-row: 2/3; /* Updated line */
+
+  grid-template-columns: 50% 50%;
+  background-color: white;
+
+}
+
+.why-this-app-img-section{
+  height: 400px;
+  background-color: #ffffff;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  justify-items: end;
+  margin-right: 50px;
+}
+
+.why-this-app-img-section-img{
+  height: 300px;
+  width: 300px;
+  align-self: center;
+  background-color: #2d2d2d;
+}
+
+.why_this_app__info-panel{
+  margin-top: 50px;
+}
+
+.why_this_app__info_panel-text{
+  width: 400px;
 }
