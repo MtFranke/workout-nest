@@ -1,0 +1,27 @@
+.grid-container {
+  display: grid;
+  grid-template-rows: 300px auto auto 200px;
+  grid-template-columns: repeat(12,1fr);
+}
+
+app-header{
+  grid-column: 1/13;
+  grid-row: 1/ 2;
+}
+
+app-intro{
+  grid-column: 1/13;
+  grid-row: 2/3;
+}
+
+app-devices{
+  grid-column: 1/13;
+  grid-row: 3/4;
+}
+
+app-footer{
+  grid-column: 1/13;
+  grid-row: 4/5;
+}
+
+

@@ -1,0 +1,93 @@
+
+.menu {
+  background-color: #ffffff;
+  display: grid;
+  grid-template-columns: 75px auto 200px;
+
+}
+
+.menu-background-img{
+  background-color: #727272;
+  grid-column: 1/13;
+  grid-row: 1/ 1;
+
+}
+
+.logo{
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.footer{
+  grid-column: 1/13;
+  grid-row: 4/5; /* Updated line */
+  background-color: #2d2d2d;
+}
+
+
+
+.buttons{
+  justify-self: end;
+  align-self: center;
+  margin-right: 20px;
+}
+
+.btn{
+  width: 100px;
+  height: 35px;
+  cursor: pointer;
+}
+
+.icon{
+  height: 30px;
+  display: block;
+
+}
+.icon-small{
+  height: 15px;
+  display: block;
+
+}
+
+.language-panel{
+  width: 200px;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 20px;
+
+}
+
+.language{
+  background-color: black;
+  color: white;
+  height: 20px;
+  width: 35px;
+  align-self: center;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-left: 10px;
+
+}
+
+span{
+  align-self: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.language-icon{
+  align-self: center;
+
+}
+
+.language-panel__arrow-icon{
+  align-self: center;
+  display: block;
+  height: 20px;
+  cursor: pointer;
+}
+

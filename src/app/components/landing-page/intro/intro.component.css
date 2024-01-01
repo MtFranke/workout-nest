@@ -1,0 +1,35 @@
+
+.why-this-app{
+  display: grid;
+  grid-column: 1/13;
+  grid-row: 2/3; /* Updated line */
+
+  grid-template-columns: 50% 50%;
+  background-color: white;
+
+}
+
+.why-this-app-img-section{
+  height: 400px;
+  background-color: #ffffff;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  justify-items: end;
+  margin-right: 50px;
+}
+
+.why-this-app-img-section-img{
+  height: 300px;
+  width: 300px;
+  align-self: center;
+  background-color: #2d2d2d;
+}
+
+.why_this_app__info-panel{
+  margin-top: 50px;
+}
+
+.why_this_app__info_panel-text{
+  width: 400px;
+}

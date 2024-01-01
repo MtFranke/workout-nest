@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {HeaderComponent} from "../../header/header.component";
 import {HttpClient} from "@angular/common/http";
 import {WorkoutSchemaModel} from "./models/workout-schema.model";
 import {NgForOf, NgIf} from "@angular/common";
@@ -9,7 +8,6 @@ import {Router} from "@angular/router";
   selector: 'app-workouts',
   standalone: true,
   imports: [
-    HeaderComponent,
     NgForOf,
     NgIf
   ],
