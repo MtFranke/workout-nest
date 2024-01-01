@@ -1,0 +1,51 @@
+.icon{
+  height: 30px;
+  display: block;
+
+}
+.icon-small{
+  height: 15px;
+  display: block;
+
+}
+
+.language-panel{
+  display: flex;
+  justify-content: flex-start;
+  justify-self: center;
+  margin-left: 20px;
+
+}
+
+.language{
+  background-color: black;
+  color: white;
+  height: 20px;
+  width: 35px;
+  align-self: center;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-left: 10px;
+
+}
+
+span{
+  align-self: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.language-icon{
+  align-self: center;
+
+}
+
+.language-panel__arrow-icon{
+  align-self: center;
+  display: block;
+  height: 20px;
+  cursor: pointer;
+}
+

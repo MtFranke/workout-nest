@@ -1,51 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Login Page</title>
-</head>
-<body>
-
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-header">Login</div>
-        <div class="card-body">
-          <form [formGroup] = "loginForm" (ngSubmit)="onSubmit()">
-            <div class="form-group">
-              <label for="username">Username</label>
-              <input
-                type="text"
-                class="form-control"
-                id="username"
-                placeholder="Enter your username"
-                formControlName="username">
-            </div>
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input
-                type="password"
-                class="form-control"
-                id="password"
-                placeholder="Enter your password"
-                formControlName="password">
-            </div>
-            <div class="row" style="margin-top: 20px;">
-              <button
-                type="submit"
-                class="btn btn-primary col-4"
-                [disabled]="!loginForm.valid">Login</button>
-              <button type="button" class="btn btn-primary col-4" (click)="onRegisterClick()">Register</button>
-              <p class="col-4">Forgot password ?</p>
-            </div>
-          </form>
+<div class="login">
+  <section class="login__side-panel"></section>
+  <section class="login__login-panel">
+    <nav class="login__login-panel__nav">
+      <button class="login__login-panel__nav--signup">Sign up</button>
+      <app-language></app-language>
+    </nav>
+    <div class="login__login-panel__card">
+      <h2 class="login__login-panel__card--title">Log in</h2>
+      <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" class="login__login-panel__card__form">
+        <div>
+          <input
+            class="login__login-panel__card__form__input--username"
+            formControlName="username"
+            id="username"
+            placeholder="username"
+            type="text">
         </div>
-      </div>
+        <div>
+          <input
+            class="login__login-panel__card__form__input--password"
+            formControlName="password"
+            id="password"
+            placeholder="password"
+            type="password">
+        </div>
+        <div style="margin-top: 20px;">
+          <button
+            [disabled]="!loginForm.valid"
+            class="login__login-panel__card__form__button"
+            type="submit">Login
+          </button>
+          <p class="login__login-panel__card__form--forgot-password">Forgot password ?</p>
+        </div>
+      </form>
     </div>
-  </div>
+
+  </section>
 </div>
 
-</body>
-</html>

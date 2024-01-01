@@ -1,0 +1,60 @@
+.login{
+  display: grid;
+  grid-template-columns: 300px auto;
+  grid-template-rows: 100vh;
+}
+
+.login__login-panel{
+  background-color: white;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 100px;
+}
+
+.login__side-panel{
+  background-color: lightgray;
+}
+
+.login__login-panel__nav{
+  display: grid;
+  grid-template-columns: auto 150px;
+  grid-template-rows: 100px;
+}
+
+.login__login-panel__nav--signup{
+  width: 100px;
+  height: 28px;
+  justify-self: flex-end;
+}
+
+.login__login-panel__card{
+  margin-top: 150px;
+  justify-self: center;
+
+  display: grid;
+}
+
+
+input{
+  width: 220px;
+  height: 25px;
+}
+
+.login__login-panel__card__form__input--password{
+  margin-top: 10px;
+}
+
+.login__login-panel__card__form__button{
+  width: 228px;
+  height: 25px;
+}
+
+.login__login-panel__card--title{
+  text-align: center;
+}
+
+.login__login-panel__card__form--forgot-password{
+  text-align: end;
+  font-size: 14px;
+  cursor: pointer;
+}

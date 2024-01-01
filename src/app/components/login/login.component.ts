@@ -5,6 +5,7 @@ import {HttpClient, HttpClientModule, provideHttpClient, withInterceptors} from 
 import {httpTokenAuthInterceptor} from "../../interceptors/token-auth.interceptor";
 import {JwtHelperService} from "@auth0/angular-jwt";
 import {AuthService} from "../../services/auth.service";
+import {LanguageComponent} from "../landing-page/header/language/language.component";
 
 @Component({
   selector: 'app-login',
@@ -12,6 +13,7 @@ import {AuthService} from "../../services/auth.service";
   imports: [
     FormsModule,
     ReactiveFormsModule,
+    LanguageComponent,
 
   ],
   templateUrl: './login.component.html',
