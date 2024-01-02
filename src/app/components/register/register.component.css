@@ -1,3 +1,48 @@
-input.ng-touched.ng-invalid{
-  border: solid 1px red;
+.register{
+  display: grid;
+  grid-template-columns: 30% auto;
+  grid-template-rows: 100vh;
+
+}
+
+.register__image-panel{
+  background-color: lightgray;
+}
+
+.register__register-panel{
+  background-color: white;
+  justify-self: center;
+  display: grid;
+  grid-template-columns: 100vh;
+  grid-template-rows: 50px auto;
+
+}
+
+app-language{
+  justify-self: end;
+  margin-right: 50px;
+}
+
+input{
+  width: 220px;
+  height: 25px;
+}
+
+.register__register-panel__card{
+  margin-top: 100px;
+  justify-self: center;
+
+}
+
+.register__register-panel__card--title{
+  text-align: center;
+  font-weight: bolder;
+  font-size: 24px;
+  margin-bottom: 24px;
+}
+
+.register__register-panel__card__form{
+  display: grid;
+  grid-template-columns: 228px;
+  gap: 20px;
 }

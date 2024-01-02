@@ -3,14 +3,15 @@ import {AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {NgIf} from "@angular/common";
 import {Router} from "@angular/router";
+import {LanguageComponent} from "../landing-page/header/language/language.component";
 
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [
-    ReactiveFormsModule, HttpClientModule, NgIf
-  ],
+    imports: [
+        ReactiveFormsModule, HttpClientModule, NgIf, LanguageComponent
+    ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
