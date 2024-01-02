@@ -1,8 +1,27 @@
-<div class="x-container" style="margin-top: 200px">
-  <div class="tile tile-flex-container" (click)="onWorkoutsClick()">
-    <p>Workouts</p>
-  </div>
-  <div class="tile tile-flex-container">
-   <p>Train</p>
-  </div>
+<div class="dashboard">
+  <nav class="dashboard__nav">
+    <div class="dashboard__nav--logo">L</div>
+    <div></div>
+    <button class="dashboard__nav--new-workout">New</button>
+    <img src="assets/person.png" class="icon">
+    <app-language></app-language>
+  </nav>
+  <section class="dashboard__workouts">
+    <div class="dashboard__workouts__title">
+      <div>Workouts</div>
+      <div>_______________________</div>
+    </div>
+    <div class="dashboard__workouts__workouts-list">
+      <div class="dashboard__workouts__workouts-list--item"></div>
+      <div class="dashboard__workouts__workouts-list--item"></div>
+      <div class="dashboard__workouts__workouts-list--item"></div>
+      <div class="dashboard__workouts__workouts-list--item"></div>
+      <div class="dashboard__workouts__workouts-list--item"></div>
+      <div class="dashboard__workouts__workouts-list--item"></div>
+    </div>
+    <div class="dashboard__workouts__sort-by">
+      <p>Sport by</p>
+      <p>activity</p>
+    </div>
+  </section>
 </div>

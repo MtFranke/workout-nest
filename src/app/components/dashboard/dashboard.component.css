@@ -1,30 +1,68 @@
-.x-container{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 40px;
-
+.dashboard{
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 50px 100vh;
 }
-
-.tile{
-  border: 1px solid black;
-  background-color: white;
-  height: 150px;
-  width: 300px;
-  color: black;
-  cursor: pointer;
-}
-
-.marker{
-  background-color: red;
-}
-
-.tile-flex-container{
-  display: flex;
-  justify-content: center;
+.dashboard__nav{
+  background-color: #c7c7c7;
+  display: grid;
+  grid-template-columns: 100px auto 120px 40px 150px;
+  grid-template-rows: auto;
   align-items: center;
 }
 
-p{
-font-size: 40px;
+app-language{
+  justify-self: end;
+  margin-right: 50px;
+}
+
+.dashboard__workouts{
+  background-color: #ffffff;
+}
+
+.dashboard__nav--logo{
+  width: 50px;
+  height: 50px;
+  background: wheat;
+}
+
+.dashboard__nav--new-workout{
+  width: 70px;
+  justify-self: end;
+  margin-right: 40px;
+}
+
+.dashboard__workouts{
+  margin-top: 150px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 100px 1fr;
+  gap: 20px;
+  justify-self: center;
+}
+.dashboard__workouts__workouts-list{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  grid-column: 2/3;
+  height: 200px;
+}
+
+.dashboard__workouts__workouts-list--item
+{
+  height: 100px;
+  width: 100px;
+  background-color: #c7c7c7;
+}
+
+.dashboard__workouts__title{
+  font-size: 24px;
+  font-weight: bolder;
+  margin-bottom: 20px;
+  grid-column: 1/4;
+  justify-self: center;
+}
+
+.icon{
+  height: 30px;
 }
