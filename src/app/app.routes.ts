@@ -13,8 +13,7 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent},
   { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] },
-  { path: 'workouts', component: WorkoutsComponent, canActivate: [authGuard] },
-  { path: 'workout', component: WorkoutComponent, canActivate: [authGuard] },
+  { path: 'workout/:guid', component: WorkoutComponent, canActivate: [authGuard] },
   { path: '**', component: PageNotFoundComponent },  // Wildcard route for a 404 page
 
 ];

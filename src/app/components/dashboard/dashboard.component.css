@@ -32,37 +32,6 @@ app-language{
   margin-right: 40px;
 }
 
-.dashboard__workouts{
-  margin-top: 150px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 100px 1fr;
-  gap: 20px;
-  justify-self: center;
-}
-.dashboard__workouts__workouts-list{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
-  grid-column: 2/3;
-  height: 200px;
-}
-
-.dashboard__workouts__workouts-list--item
-{
-  height: 100px;
-  width: 100px;
-  background-color: #c7c7c7;
-}
-
-.dashboard__workouts__title{
-  font-size: 24px;
-  font-weight: bolder;
-  margin-bottom: 20px;
-  grid-column: 1/4;
-  justify-self: center;
-}
-
 .icon{
   height: 30px;
 }

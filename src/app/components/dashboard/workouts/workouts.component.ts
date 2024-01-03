@@ -15,34 +15,24 @@ import {Router} from "@angular/router";
   styleUrl: './workouts.component.css'
 })
 export class WorkoutsComponent implements OnInit{
+  workouts:WorkoutSchemaModel [] = [];
 
-  workoutsSchema: WorkoutSchemaModel[] = [];
-  showWorkoutExercises: boolean = false;
-  workoutSchema: WorkoutSchemaModel  = new WorkoutSchemaModel();
 
   constructor(private http: HttpClient, private router: Router) {
 
   }
 
   ngOnInit() {
-    const url = 'http://localhost:5213/workouts-schema';
-
-    this.http.get<WorkoutSchemaModel[]>(url)
-      .subscribe(
-        (x) => {
-          this.workoutsSchema = x;
-        })
+    this.http
+      .get<WorkoutSchemaModel[]>('http://localhost:5213/workouts-schema')
+      .subscribe((x)=> {
+        console.log(x);
+        this.workouts = x;
+      })
   }
 
-  onWorkoutClick(index: number) {
-    this.showWorkoutExercises =!this.showWorkoutExercises;
-    this.workoutSchema = this.workoutsSchema[index];
-    console.log(this.workoutSchema);
-    console.log(this.workoutSchema.exercisesId);
-  }
-
-
-  onTrainClick(name: string) {
-    this.router.navigate(['workout'])
+  onWorkoutClick(index: number): void{
+    const workoutId = this.workouts[index].id;
+    this.router.navigate(['workout', workoutId] );
   }
 }

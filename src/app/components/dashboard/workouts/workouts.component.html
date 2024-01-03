@@ -1,18 +1,17 @@
-<div class="outer-container" style="margin-top: 120px;">
-  <div class="workouts-new ">
-    <h4>Workouts</h4>
-    <button class="btn btn-primary">New</button>
-  </div>
-  <div class="x-container">
-    <div *ngFor="let x of workoutsSchema;index as i;" class="workout-schema-tile" (click)="onWorkoutClick(i)">
-      <p>{{x.name}}</p>
+  <section class="dashboard__workouts">
+    <div class="dashboard__workouts__title">
+      <div>Workouts</div>
+      <div>_______________________</div>
     </div>
-  </div>
-  <div *ngIf="showWorkoutExercises">
-    <h4>{{workoutSchema.name}}</h4>
-    <div *ngFor="let ex of workoutSchema.exercisesId;">
-      <p>{{ex}}</p>
-      <button class="btn btn-success" type="button" (click)="onTrainClick(workoutSchema.name)">Train</button>
+    <div class="dashboard__workouts__workouts-list">
+      <div *ngFor="let workout of workouts; let i = index"
+           class="dashboard__workouts__workouts-list--item"
+      (click)="onWorkoutClick(i)">
+        <p class="dashboard__workouts__workouts-list--item--name">{{workout.name}}</p>
+      </div>
     </div>
-  </div>
-</div>
+    <div class="dashboard__workouts__sort-by">
+      <p>Sport by</p>
+      <p>activity</p>
+    </div>
+  </section>
