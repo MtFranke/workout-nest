@@ -1,8 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {Router} from "@angular/router";
 import {LanguageComponent} from "../landing-page/header/language/language.component";
 import {HttpClient} from "@angular/common/http";
-import {WorkoutSchemaModel} from "./workouts/models/workout-schema.model";
 import {NgForOf} from "@angular/common";
 import {WorkoutsComponent} from "./workouts/workouts.component";
 
@@ -24,4 +23,7 @@ export class DashboardComponent{
 
   }
 
+  onNewWorkoutClick() {
+    this.router.navigate(['new-workout']);
+  }
 }

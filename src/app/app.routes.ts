@@ -7,12 +7,14 @@ import {authGuard} from "./guards/auth.can-activate";
 import {WorkoutsComponent} from "./components/dashboard/workouts/workouts.component";
 import {WorkoutComponent} from "./components/dashboard/workouts/workout/workout.component";
 import {LandingPageComponent} from "./components/landing-page/landing-page.component";
+import {NewWorkoutComponent} from "./components/dashboard/workouts/new-workout/new-workout.component";
 
 export const routes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent},
   { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] },
+  { path: 'new-workout', component: NewWorkoutComponent, canActivate: [authGuard] },
   { path: 'workout/:guid', component: WorkoutComponent, canActivate: [authGuard] },
   { path: '**', component: PageNotFoundComponent },  // Wildcard route for a 404 page
 
