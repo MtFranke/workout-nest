@@ -1,0 +1,175 @@
+.container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 50px 100vh;
+}
+
+.menu{
+  grid-column: 1/3;
+  height: 50px;
+  display: grid;
+  grid-template-columns: 1fr 50px 200px;
+}
+.menu--logo{
+  background-color: lightblue;
+  width: 50px;
+  height: 50px;
+}
+
+.menu--person-icon{
+  height: 30px;
+  align-self: center;
+  justify-self: end;
+}
+
+app-language{
+  align-self: center;
+}
+
+.info{
+  grid-column: 1/2;
+  grid-row: 2/3;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50px 100px 50px 300px;
+  width: 300px;
+  justify-self: end;
+  row-gap: 30px;
+  margin-top: 50px;
+
+}
+
+.info__name{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+}
+
+.info--title{
+  text-align: center;
+  margin: 0px;
+  align-self: end;
+}
+
+.info__input-container{
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+  justify-items: center;
+}
+
+.info__input-container--label{
+  justify-self: end;
+  margin-right: 20px;
+}
+.info__target-muscle-container{
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  grid-template-rows: 1fr;
+
+}
+
+.info__target-muscle-container--title {
+  justify-self: end;
+  margin-right: 20px;
+}
+
+.info__exercises-container{
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  grid-template-rows: 1fr;
+}
+
+.info__exercises-container--title{
+  justify-self: end;
+  margin-right: 20px;
+}
+
+.exercises{
+  grid-column: 2/3;
+  grid-row: 2/3;
+  height: 100vh;
+  display: grid;
+  margin-top: 50px;
+  margin-left: 50px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50px 30px 400px;
+}
+
+.exercises--card{
+  background-color: #ffffff;
+  width: 300px;
+  grid-template-columns: 1fr;
+}
+
+.exercises--title{
+  margin: 0px;
+  align-self: end;
+
+}
+
+.exercises--input-search{
+  width: 220px;
+  height: 20px;
+}
+
+.exercises-item{
+  width: 227px;
+  height: 50px;
+  background-color: white;
+  border: 1px solid black;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.exercises-item__name{
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+.exercises-item__equipment{
+  grid-column: 2/3;
+  grid-row: 1/2;
+
+}
+
+.exercises-item__add{
+  grid-column: 1/2;
+  grid-row: 2/3;
+  font-size: 20px;
+  font-weight: bolder;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.exercises-item__muscle{
+  grid-column: 2/3;
+  grid-row: 2/3;
+  background-color: #c7c7c7;
+  border-radius: 10px;
+  width: 75px;
+  height: 20px;
+  font-size: 0.8rem;
+  font-weight: bolder;
+  justify-self: end;
+  text-align: center;
+  align-self: center;
+}
+
+.exercises-item__equipment{
+  background-color: #c7c7c7;
+  border-radius: 10px;
+  width: 75px;
+  height: 20px;
+  font-size: 0.8rem;
+  font-weight: bolder;
+  justify-self: end;
+  text-align: center;
+  align-self: center;
+}

@@ -1,1 +1,50 @@
-<p>new-workout works!</p>
+<div class="container">
+  <nav class="menu">
+    <div class="menu--logo"></div>
+    <img src="assets/person.png" class="menu--person-icon">
+    <app-language></app-language>
+  </nav>
+  <div class="info">
+    <h3 class="info--title">Information</h3>
+    <div class="info__name">
+      <div class="info__input-container">
+        <div class="info__input-container--label">Name</div>
+        <input type="text">
+      </div>
+      <div class="info__input-container">
+        <div class="info__input-container--label">Description</div>
+        <input type="text">
+      </div>
+    </div>
+    <div class="info__target-muscle-container">
+      <div class="info__target-muscle-container--title">Target muscles</div>
+      <div>
+        <div *ngFor="let muscle of targetedMuscles">{{muscle}}</div>
+
+      </div>
+    </div>
+    <div class="info__exercises-container">
+      <div class="info__exercises-container--title">Exercises</div>
+      <div>
+        <div *ngFor="let selectedExercise of selectedExercises">
+          <span>-</span>
+          {{selectedExercise.name}}</div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="exercises">
+    <h3 class="exercises--title">Exercises</h3>
+    <input type="text" class="exercises--input-search">
+    <div class="exercises--card">
+      <div *ngFor="let x of exercices" class="exercises-item">
+        <div class="exercises-item__name">{{x.name}}</div>
+        <div class="exercises-item__add" (click)="onAddExercise(x)">+</div>
+        <div class="exercises-item__equipment">{{x.equipment}}</div>
+        <div class="exercises-item__muscle">{{x.primaryMuscleGroup}}</div>
+      </div>
+    </div>
+  </div>
+</div>
