@@ -27,4 +27,41 @@
   background-color: white;
   border: 1px solid black;
   border-radius: 10px;
+  cursor: pointer;
+}
+
+.current-exercise__sets{
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.current-exercise__sets__item{
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1fr 40px;
+  grid-template-rows: 1fr 1fr;
+}
+
+.current-exercise__sets__item--weight{
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+.current-exercise__sets__item--reps{
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+
+.current-exercise__sets__item--finish{
+  grid-column: 2/3;
+  grid-row: 1/2;
+  cursor: pointer;
+}
+
+.current-exercise__sets__item--finished{
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
 }

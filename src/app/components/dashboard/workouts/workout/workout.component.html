@@ -5,11 +5,36 @@
     <h2>Exercises</h2>
     <h4> {{finished}}/{{workout.exercisesId.length}} Finished</h4>
     <ul class="exercises-list">
-      <li *ngFor="let exercise of workout.exercisesId" class="exercises-list__item">
+      <li *ngFor="let exercise of workout.exercisesId" class="exercises-list__item" (click)="onExerciseSelected(exercise)">
         <p>{{getExerciseName(exercise)}}</p>
       </li>
 
     </ul>
   </section>
-  <section class="current-exercise"></section>
+  <section class="current-exercise">
+    <nav class="current-exercise__menu">
+      <span>0/3 sets</span>
+      <span>+</span>
+      <span>{{currentExerciseName}}</span>
+    </nav>
+    <ul class="current-exercise__sets">
+     <li class="current-exercise__sets__item">
+       <span class="current-exercise__sets__item--finish" (click)="onSetFinish()">Finish</span>
+       <div class="current-exercise__sets__item--weight">
+         <label for="weight">Weight</label>
+         <input type="text" id="weight" #weight>
+       </div>
+        <div class="current-exercise__sets__item--reps">
+          <label for="reps">Reps</label>
+          <input type="text" id="reps" #reps>
+        </div>
+
+     </li>
+      <li class="current-exercise__sets__item--finished" *ngFor="let x of currentExercise.set">
+        <span>{{x.reps}}</span>
+        <span>{{x.weight}}</span>
+      </li>
+    </ul>
+    <button (click)="onCompleteExercise()">Complete Exercise</button>
+  </section>
 </div>
