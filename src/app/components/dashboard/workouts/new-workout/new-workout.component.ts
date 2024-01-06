@@ -1,8 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {LanguageComponent} from "../../../landing-page/header/language/language.component";
 import {HttpClient} from "@angular/common/http";
 import {ExerciseModel} from "../models/exercise.model";
 import {NgForOf} from "@angular/common";
+import {WorkoutSchemaModel} from "../models/workout-schema.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-new-workout',
@@ -16,10 +18,13 @@ import {NgForOf} from "@angular/common";
 })
 export class NewWorkoutComponent implements OnInit{
 
+  // @ts-ignore
+  @ViewChild('workout_name', { static: false }) workoutNameEl: ElementRef;
+
   selectedExercises: ExerciseModel[] = [];
   targetedMuscles: string[] = [];
   exercices: ExerciseModel[] = [];
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
   this.http.get<ExerciseModel[]>('http://localhost:5213/exercises').subscribe(data => {
@@ -40,5 +45,19 @@ export class NewWorkoutComponent implements OnInit{
     } else {
       return false;
     }
+  }
+
+  onSaveWorkout() {
+
+    let workoutSchema = new WorkoutSchemaModel();
+    workoutSchema.name = this.workoutNameEl.nativeElement.value;
+    workoutSchema.exercises = this.selectedExercises.map(x => x.id);
+    this.http.post('http://localhost:5213/workouts-schema', workoutSchema).subscribe(data => {
+      console.log(data);
+      this.router.navigate(['dashboard']);
+    });
+    
+
+
   }
 }

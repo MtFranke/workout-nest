@@ -95,7 +95,7 @@ app-language{
   margin-top: 50px;
   margin-left: 50px;
   grid-template-columns: 1fr;
-  grid-template-rows: 50px 30px 400px;
+  grid-template-rows: 50px 30px 200px;
 }
 
 .exercises--card{
@@ -172,4 +172,8 @@ app-language{
   justify-self: end;
   text-align: center;
   align-self: center;
+}
+
+.info__save{
+  height: 30px;
 }
