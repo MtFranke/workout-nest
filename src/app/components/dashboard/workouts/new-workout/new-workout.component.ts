@@ -51,12 +51,12 @@ export class NewWorkoutComponent implements OnInit{
 
     let workoutSchema = new WorkoutSchemaModel();
     workoutSchema.name = this.workoutNameEl.nativeElement.value;
-    workoutSchema.exercises = this.selectedExercises.map(x => x.id);
+    workoutSchema.exercisesId = this.selectedExercises.map(x => x.id);
     this.http.post('http://localhost:5213/workouts-schema', workoutSchema).subscribe(data => {
       console.log(data);
       this.router.navigate(['dashboard']);
     });
-    
+
 
 
   }

@@ -1,0 +1,30 @@
+.container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 50px 100px 1fr;
+}
+.exercises{
+  grid-column: 1/2;
+  grid-row: 3/4;
+  background-color: lightgrey;
+}
+
+.navigation{
+  grid-column: 1/3;
+  grid-row: 1/2;
+  background-color: #727272;
+}
+
+.current-exercise{
+  grid-column: 2/3;
+  grid-row: 3/4;
+  background-color: #e08f8f;
+}
+
+.exercises-list__item{
+  width: 200px;
+  height: 50px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+}

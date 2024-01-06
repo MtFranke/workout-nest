@@ -1,2 +1,15 @@
-<p>workout</p>
-<p>{{guid}}</p>
+<div class="container">
+  <nav class="navigation"></nav>
+  <h1>{{workout.name}}</h1>
+  <section class="exercises">
+    <h2>Exercises</h2>
+    <h4> {{finished}}/{{workout.exercisesId.length}} Finished</h4>
+    <ul class="exercises-list">
+      <li *ngFor="let exercise of workout.exercisesId" class="exercises-list__item">
+        <p>{{getExerciseName(exercise)}}</p>
+      </li>
+
+    </ul>
+  </section>
+  <section class="current-exercise"></section>
+</div>
