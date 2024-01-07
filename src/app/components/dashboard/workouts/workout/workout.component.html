@@ -19,7 +19,7 @@
       End Workout
     </button>
   </section>
-  <section class="current-exercise">
+  <section *ngIf="currentExercise != null" class="current-exercise">
     <nav class="current-exercise__menu">
       <span>0/3 sets</span>
       <span>+</span>

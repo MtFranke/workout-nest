@@ -34,7 +34,8 @@ export class WorkoutComponent {
   workedExercisesModel: WorkedExerciseModel[] = [];
   w: WorkoutSchemaTrainingModel = new WorkoutSchemaTrainingModel();
 
-  currentExercise: WorkedExerciseModel = new WorkedExerciseModel();
+  // @ts-ignore
+  currentExercise: WorkedExerciseModel = null;
   currentExerciseName: string = ""
 
   constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router) { }
@@ -66,6 +67,7 @@ export class WorkoutComponent {
   }
 
   onExerciseSelected(exercise: string) {
+    this.currentExercise = new WorkedExerciseModel();
     this.currentExercise.exercisesId = exercise;
     this.currentExerciseName = this.getExerciseName(exercise);
   }
