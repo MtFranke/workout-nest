@@ -1,8 +1,11 @@
 <section class="navigation-menu">
   <div class="navigation-menu--logo pointer" (click)="onLogoClick()">WorkoutNEST</div>
-  <div class="dashboard__menu" *ngIf="isDashboard">
+  <div class="dashboard__menu" *ngIf="isLandingPage">
     <button (click)="onLoginClick()">Login</button>
     <button (click)="onRegisterClick()">Register</button>
+  </div>
+  <div class="dashboard__new-routine" *ngIf="isDashboard">
+    <button class="pointer" (click)="onNewRoutine()">New routine</button>
   </div>
   <img src="assets/9035117_person_icon.svg" alt="user_menu_icon" class="icon pointer navigation-menu--user-mode" *ngIf="isUserLoggedIn">
   <img src="assets/moon_stars_fill_icon.svg" alt="dark_mode_icon" class="icon navigation-menu--dark-mode pointer">

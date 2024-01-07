@@ -15,6 +15,7 @@ import {NgIf} from "@angular/common";
 export class NavigationComponent implements OnInit{
 
   isUserLoggedIn: boolean = false;
+  isLandingPage:boolean = false;
   isDashboard:boolean = false;
 
   constructor(private router: Router, private authService: AuthService, private activatedRoute: ActivatedRoute){
@@ -24,7 +25,8 @@ export class NavigationComponent implements OnInit{
   ngOnInit() {
    this.isUserLoggedIn =  this.authService.isAuthenticated();
    //get last part of url
-    this.isDashboard = this.router.url.split('/').pop() === '';
+    this.isLandingPage = this.router.url.split('/').pop() === '';
+    this.isDashboard = this.router.url.split('/').pop() === 'dashboard';
 
   }
 
@@ -38,5 +40,10 @@ export class NavigationComponent implements OnInit{
 
   onRegisterClick() {
     this.router.navigate(['register']);
+  }
+
+  onNewRoutine() {
+    this.router.navigate(['new-workout']);
+
   }
 }
