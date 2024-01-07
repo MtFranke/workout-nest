@@ -1,15 +1,23 @@
 <div class="container">
   <nav class="navigation"></nav>
-  <h1>{{workout.name}}</h1>
+  <h1>{{w.name}}</h1>
   <section class="exercises">
     <h2>Exercises</h2>
-    <h4> {{finished}}/{{workout.exercisesId.length}} Finished</h4>
+    <h4> {{finished}}/{{w.workoutExerciseModel.length}} Finished</h4>
     <ul class="exercises-list">
-      <li *ngFor="let exercise of workout.exercisesId" class="exercises-list__item" (click)="onExerciseSelected(exercise)">
-        <p>{{getExerciseName(exercise)}}</p>
+      <li  class="exercises-list__item"
+           *ngFor="let exercise of w.workoutExerciseModel"
+          (click)="onExerciseSelected(exercise.exercisesId)"
+
+      >
+        <p>{{getExerciseName(exercise.exercisesId)}}</p>
+        <span *ngIf="exercise.completed">FINISHED</span>
       </li>
 
     </ul>
+    <button (click)="onWorkoutEnd()">
+      End Workout
+    </button>
   </section>
   <section class="current-exercise">
     <nav class="current-exercise__menu">
@@ -30,7 +38,7 @@
         </div>
 
      </li>
-      <li class="current-exercise__sets__item--finished" *ngFor="let x of currentExercise.set">
+      <li class="current-exercise__sets__item--finished" *ngFor="let x of currentExercise.sets">
         <span>{{x.reps}}</span>
         <span>{{x.weight}}</span>
       </li>

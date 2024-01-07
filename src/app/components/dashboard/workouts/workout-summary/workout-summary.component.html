@@ -1,0 +1,8 @@
+<p>workout-summary works!</p>
+<p>{{guid}}</p>
+
+<h2>{{workout.name}}</h2>
+<h4>{{workout.date}}</h4>
+<ul>
+  <li *ngFor="let x of volumeModel">{{x.exerciseId}} | {{x.volume}}</li>
+</ul>
