@@ -1,18 +1,18 @@
 import {Component} from '@angular/core';
 import {Router} from "@angular/router";
-import {LanguageComponent} from "../landing-page/header/language/language.component";
 import {HttpClient} from "@angular/common/http";
 import {NgForOf} from "@angular/common";
 import {WorkoutsComponent} from "./workouts/workouts.component";
+import {NavigationComponent} from "../navigation/navigation.component";
 
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
   imports: [
-    LanguageComponent,
     NgForOf,
-    WorkoutsComponent
+    WorkoutsComponent,
+    NavigationComponent
 
   ],
   templateUrl: './dashboard.component.html',

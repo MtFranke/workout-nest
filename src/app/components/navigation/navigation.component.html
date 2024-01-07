@@ -1,0 +1,15 @@
+<section class="navigation-menu">
+  <div class="navigation-menu--logo pointer" (click)="onLogoClick()">WorkoutNEST</div>
+  <div class="dashboard__menu" *ngIf="isDashboard">
+    <button (click)="onLoginClick()">Login</button>
+    <button (click)="onRegisterClick()">Register</button>
+  </div>
+  <img src="assets/9035117_person_icon.svg" alt="user_menu_icon" class="icon pointer navigation-menu--user-mode" *ngIf="isUserLoggedIn">
+  <img src="assets/moon_stars_fill_icon.svg" alt="dark_mode_icon" class="icon navigation-menu--dark-mode pointer">
+  <div class="navigation-menu__language-panel">
+    <img src="assets/103571_globe_icon.svg" class="icon navigation-menu__language-panel--glob-icon">
+    <div class="navigation-menu__language-panel__box"><span class="navigation-menu__language-panel__box--title">EN</span></div>
+    <img src="assets/arrow_down.png" class="icon pointer">
+  </div>
+
+</section>

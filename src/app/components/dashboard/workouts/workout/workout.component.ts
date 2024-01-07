@@ -9,13 +9,15 @@ import {SetModel} from "../models/set.model";
 import {WorkoutSchemaTrainingModel} from "../models/workout-schema-training.model";
 import {WorkoutExerciseModel} from "../models/workout-exercise.model";
 import {SaveWorkoutModel} from "../models/save-workout.model";
+import {NavigationComponent} from "../../../navigation/navigation.component";
 
 @Component({
   selector: 'app-workout',
   standalone: true,
   imports: [
     NgForOf,
-    NgIf
+    NgIf,
+    NavigationComponent
   ],
   templateUrl: './workout.component.html',
   styleUrl: './workout.component.css'

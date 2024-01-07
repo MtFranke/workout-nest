@@ -5,12 +5,14 @@ import {WorkoutModel} from "../models/workout.model";
 import {NgForOf} from "@angular/common";
 import {VolumeModel} from "../models/volume.model";
 import {ExerciseModel} from "../models/exercise.model";
+import {NavigationComponent} from "../../../navigation/navigation.component";
 
 @Component({
   selector: 'app-workout-summary',
   standalone: true,
   imports: [
-    NgForOf
+    NgForOf,
+    NavigationComponent
   ],
   templateUrl: './workout-summary.component.html',
   styleUrl: './workout-summary.component.css'

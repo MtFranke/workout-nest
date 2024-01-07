@@ -1,11 +1,9 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
-import {HttpClient, HttpClientModule, provideHttpClient, withInterceptors} from "@angular/common/http";
-import {httpTokenAuthInterceptor} from "../../interceptors/token-auth.interceptor";
-import {JwtHelperService} from "@auth0/angular-jwt";
+import {HttpClient} from "@angular/common/http";
 import {AuthService} from "../../services/auth.service";
-import {LanguageComponent} from "../landing-page/header/language/language.component";
+import {NavigationComponent} from "../navigation/navigation.component";
 
 @Component({
   selector: 'app-login',
@@ -13,7 +11,7 @@ import {LanguageComponent} from "../landing-page/header/language/language.compon
   imports: [
     FormsModule,
     ReactiveFormsModule,
-    LanguageComponent,
+    NavigationComponent
 
   ],
   templateUrl: './login.component.html',
@@ -27,6 +25,12 @@ export class LoginComponent implements OnInit{
   }
 
   ngOnInit() {
+
+    if (this.authService.isAuthenticated()) {
+      this.router.navigate(['dashboard']);
+
+    }
+
     this.loginForm = new FormGroup({
       'username': new FormControl('', [Validators.required]),
       'password': new FormControl('', [Validators.required])}

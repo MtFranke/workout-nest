@@ -1,10 +1,7 @@
 <div class="login">
   <section class="login__side-panel"></section>
   <section class="login__login-panel">
-    <nav class="login__login-panel__nav">
-      <button class="login__login-panel__nav--signup" (click)="onRegisterClick()">Sign up</button>
-      <app-language></app-language>
-    </nav>
+  <app-navigation></app-navigation>
     <div class="login__login-panel__card">
       <h2 class="login__login-panel__card--title">Log in</h2>
       <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" class="login__login-panel__card__form">

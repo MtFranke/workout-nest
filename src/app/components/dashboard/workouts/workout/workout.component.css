@@ -9,10 +9,9 @@
   background-color: lightgrey;
 }
 
-.navigation{
+app-navigation{
   grid-column: 1/3;
   grid-row: 1/2;
-  background-color: #727272;
 }
 
 .current-exercise{

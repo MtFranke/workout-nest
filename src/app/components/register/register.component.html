@@ -3,7 +3,7 @@
 
   </div>
   <div class="register__register-panel">
-    <app-language></app-language>
+    <app-navigation></app-navigation>
     <div class="register__register-panel__card">
       <div class="register__register-panel__card--title">Register</div>
         <form *ngIf="!successfullyRegistered" [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register__register-panel__card__form">

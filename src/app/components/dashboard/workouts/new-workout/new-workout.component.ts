@@ -1,17 +1,17 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {LanguageComponent} from "../../../landing-page/header/language/language.component";
 import {HttpClient} from "@angular/common/http";
 import {ExerciseModel} from "../models/exercise.model";
 import {NgForOf} from "@angular/common";
 import {WorkoutSchemaModel} from "../models/workout-schema.model";
 import {Router} from "@angular/router";
+import {NavigationComponent} from "../../../navigation/navigation.component";
 
 @Component({
   selector: 'app-new-workout',
   standalone: true,
   imports: [
-    LanguageComponent,
-    NgForOf
+    NgForOf,
+    NavigationComponent
   ],
   templateUrl: './new-workout.component.html',
   styleUrl: './new-workout.component.css'
