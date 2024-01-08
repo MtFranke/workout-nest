@@ -1,5 +1,6 @@
 <section class="navigation-menu">
   <div class="navigation-menu--logo pointer" (click)="onLogoClick()">WorkoutNEST</div>
+  <div *ngIf="!isDashboard && !isLandingPage"></div>
   <div class="dashboard__menu" *ngIf="isLandingPage">
     <button (click)="onLoginClick()">Login</button>
     <button (click)="onRegisterClick()">Register</button>

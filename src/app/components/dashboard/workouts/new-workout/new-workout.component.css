@@ -16,7 +16,7 @@ app-navigation{
   height: 500px;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 30px 100px 50px 300px;
+  grid-template-rows: 30px auto 50px 300px;
   width: 300px;
   justify-self: end;
   row-gap: 30px;
