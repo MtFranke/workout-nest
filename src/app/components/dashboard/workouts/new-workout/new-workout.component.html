@@ -12,14 +12,14 @@
         <input type="text">
       </div>
     </div>
-    <div class="info__target-muscle-container">
+    <div class="info__target-muscle-container" >
       <div class="info__target-muscle-container--title">Target muscles</div>
       <div>
         <div *ngFor="let muscle of targetedMuscles">{{muscle}}</div>
 
       </div>
     </div>
-    <div class="info__exercises-container">
+    <div class="info__exercises-container" >
       <div class="info__exercises-container--title">Exercises</div>
       <div>
         <div *ngFor="let selectedExercise of selectedExercises">
@@ -28,7 +28,12 @@
 
       </div>
     </div>
-    <button class="info__save" (click)="onSaveWorkout()">Save</button>
+    <div>
+      <hr>
+      <button>Reset</button>
+      <button class="info__save" (click)="onSaveWorkout()">Save</button>
+
+    </div>
   </div>
 
 
@@ -36,11 +41,16 @@
     <h3 class="exercises--title">Exercises</h3>
     <input type="text" class="exercises--input-search">
     <div class="exercises--card">
-      <div *ngFor="let x of exercices" class="exercises-item">
+      <div *ngFor="let x of exercices" class="exercises-item" (click)="onAddExercise(x)">
         <div class="exercises-item__name">{{x.name}}</div>
-        <div class="exercises-item__add" (click)="onAddExercise(x)">+</div>
-        <div class="exercises-item__equipment">{{x.equipment}}</div>
-        <div class="exercises-item__muscle">{{x.primaryMuscleGroup}}</div>
+        <div class="exercises-item__equipment">
+          <p class="exercises-item__equipment--text">{{x.equipment}}</p>
+          <img src="assets/dumbbell-icon.png" alt="dumbbell-icon" class="icon exercises-item__equipment--icon">
+        </div>
+        <div class="exercises-item__muscle">
+          <p class="exercises-item__muscle--text"> {{x.primaryMuscleGroup}}</p>
+          <img src="assets/biceps-icon.png" alt="biceps-icon" class="icon exercises-item__muscle--icon">
+        </div>
       </div>
     </div>
   </div>

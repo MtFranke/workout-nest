@@ -1,7 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {ExerciseModel} from "../models/exercise.model";
-import {NgForOf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
 import {WorkoutSchemaModel} from "../models/workout-schema.model";
 import {Router} from "@angular/router";
 import {NavigationComponent} from "../../../navigation/navigation.component";
@@ -11,7 +11,8 @@ import {NavigationComponent} from "../../../navigation/navigation.component";
   standalone: true,
   imports: [
     NgForOf,
-    NavigationComponent
+    NavigationComponent,
+    NgIf
   ],
   templateUrl: './new-workout.component.html',
   styleUrl: './new-workout.component.css'
@@ -24,6 +25,9 @@ export class NewWorkoutComponent implements OnInit{
   selectedExercises: ExerciseModel[] = [];
   targetedMuscles: string[] = [];
   exercices: ExerciseModel[] = [];
+
+  targetedMusclesVisible: boolean = false;
+  exercisesVisible: boolean = false;
   constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
@@ -36,6 +40,8 @@ export class NewWorkoutComponent implements OnInit{
   onAddExercise(exercise: ExerciseModel) {
     this.selectedExercises.push(exercise);
      this.checkIfMuscleIsTrained(exercise.primaryMuscleGroup);
+     this.targetedMusclesVisible = true;
+     this.exercisesVisible = true;
   }
 
   checkIfMuscleIsTrained(muscle: string): boolean {

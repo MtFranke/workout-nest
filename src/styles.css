@@ -2,4 +2,12 @@
 body{
   background-color: white;
   min-height: 100vh;
+  font-family: 'Poppins';
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('assets/font/poppins/Poppins-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
