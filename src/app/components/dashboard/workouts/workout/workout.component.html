@@ -1,48 +1,53 @@
 <div class="container">
   <app-navigation></app-navigation>
-  <h1>{{w.name}}</h1>
+  <h1 class="container--title">{{w.name}}</h1>
   <section class="exercises">
-    <h2>Exercises</h2>
-    <h4> {{finished}}/{{w.workoutExerciseModel.length}} Finished</h4>
+    <h2 class="exercises--title">Exercises</h2>
+    <div class="exercises__information">
+      <h4 class="exercises__information--counter"> {{finished}}/{{w.workoutExerciseModel.length}} Finished</h4>
+      <span class="exercises__information--add">+</span>
+      <button class="exercises__information--save" (click)="onWorkoutEnd()">End & Save</button>
+    </div>
     <ul class="exercises-list">
       <li  class="exercises-list__item"
            *ngFor="let exercise of w.workoutExerciseModel"
           (click)="onExerciseSelected(exercise.exercisesId)"
 
       >
-        <p>{{getExerciseName(exercise.exercisesId)}}</p>
+        <p class="exercises-list__item--name">{{getExerciseName(exercise.exercisesId)}}</p>
         <span *ngIf="exercise.completed">FINISHED</span>
       </li>
 
     </ul>
-    <button (click)="onWorkoutEnd()">
-      End Workout
-    </button>
   </section>
   <section *ngIf="currentExercise != null" class="current-exercise">
     <nav class="current-exercise__menu">
-      <span>0/3 sets</span>
-      <span>+</span>
-      <span>{{currentExerciseName}}</span>
+      <span class="current-exercise__menu__exercise-name">{{currentExerciseName}}</span>
+
+      <span class="current-exercise__menu__sets">0/3 sets</span>
+      <span class="current-exercise__menu__add-set">+</span>
     </nav>
     <ul class="current-exercise__sets">
-     <li class="current-exercise__sets__item">
+
+      <li class="current-exercise__sets__item">
        <span class="current-exercise__sets__item--finish" (click)="onSetFinish()">Finish</span>
        <div class="current-exercise__sets__item--weight">
-         <label for="weight">Weight</label>
+         <label for="weight" class="label current-exercise__sets__item--weight--label" >Weight</label>
          <input type="text" id="weight" #weight>
        </div>
-        <div class="current-exercise__sets__item--reps">
-          <label for="reps">Reps</label>
+       <div class="current-exercise__sets__item--reps">
+          <label for="reps"  class="label">Reps</label>
           <input type="text" id="reps" #reps>
         </div>
 
      </li>
       <li class="current-exercise__sets__item--finished" *ngFor="let x of currentExercise.sets">
-        <span>{{x.reps}}</span>
-        <span>{{x.weight}}</span>
+        <p class="current-exercise__sets__item--finished--weight">{{x.weight}} kg</p>
+        <p class="current-exercise__sets__item--finished--reps">{{x.reps}} reps</p>
+        <p class="current-exercise__sets__item--finished-set-number">Set 1</p>
+        <span class="current-exercise__sets__item--edit">Edit</span>
       </li>
     </ul>
-    <button (click)="onCompleteExercise()">Complete Exercise</button>
+    <button class="current-exercise__complete" (click)="onCompleteExercise()">Complete Exercise</button>
   </section>
 </div>
