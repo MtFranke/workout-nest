@@ -14,24 +14,24 @@
     </div>
     <div class="info__target-muscle-container" >
       <div class="info__target-muscle-container--title">Target muscles</div>
-      <div>
-        <div *ngFor="let muscle of targetedMuscles">{{muscle}}</div>
+      <div class="info__target-muscle-container__muscles">
+        <div *ngFor="let muscle of targetedMuscles" class="info__target-muscle-container__muscles_name"><span>{{muscle}}</span></div>
 
       </div>
     </div>
     <div class="info__exercises-container" >
       <div class="info__exercises-container--title">Exercises</div>
-      <div>
-        <div *ngFor="let selectedExercise of selectedExercises">
-          <span>-</span>
+      <div class="info__exercises-container--wrapper">
+        <div *ngFor="let selectedExercise of selectedExercises" class="info__exercises-container__box">
+          <span class="info__exercises-container__box--remove_exercise">-</span>
           {{selectedExercise.name}}</div>
 
       </div>
     </div>
-    <div>
-      <hr>
-      <button>Reset</button>
-      <button class="info__save" (click)="onSaveWorkout()">Save</button>
+    <div class="info__cockpit">
+      <span class="info__cockpit--line"></span>
+      <button class="info__cockpit__button">Reset</button>
+      <button class="info__save info__cockpit__button" (click)="onSaveWorkout()">Save</button>
 
     </div>
   </div>

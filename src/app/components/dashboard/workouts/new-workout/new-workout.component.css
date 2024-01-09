@@ -16,10 +16,10 @@ app-navigation{
   height: 500px;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 30px auto 50px 300px;
+  grid-template-rows: 30px 60px 50px 200px;
   width: 300px;
   justify-self: end;
-  row-gap: 30px;
+  row-gap: 20px;
   margin-top: 50px;
   border: 1px solid black;
   border-radius: 6px;
@@ -30,7 +30,8 @@ app-navigation{
 .info__name{
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 40px 40px;
+  grid-template-rows: 25px 25px;
+  grid-row-gap: 5px;
 }
 
 .info--title{
@@ -49,29 +50,71 @@ app-navigation{
 
 .info__input-container--label{
   justify-self: end;
-  margin-right: 20px;
+  margin-right: 5px;
+  font-size: 12px;
+
 }
 .info__target-muscle-container{
   display: grid;
   grid-template-columns: 120px 1fr;
   grid-template-rows: 1fr;
+  margin-left: 5px;
 
+}
+
+
+.info__target-muscle-container__muscles{
+  display: flex;
+  gap: 5px;
+}
+
+.info__target-muscle-container__muscles_name{
+  background-color: #c7c7c7;
+  border-radius: 5px;
+  font-size: 12px;
+  height: 18px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .info__target-muscle-container--title {
-  justify-self: end;
-  margin-right: 20px;
+  text-align: end;
+  font-size: 12px;
+  margin-right: 5px;
 }
+
+
 
 .info__exercises-container{
   display: grid;
   grid-template-columns: 120px 1fr;
   grid-template-rows: 1fr;
+  row-gap: 5px;
+}
+
+.info__exercises-container--wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .info__exercises-container--title{
   justify-self: end;
   margin-right: 20px;
+  font-size: 12px;
+}
+
+.info__exercises-container__box{
+  background-color: #c7c7c7;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.info__exercises-container__box--remove_exercise{
+  color: red;
+  cursor: pointer;
+  font-weight: bolder;
+  margin-left: 5px;
 }
 
 .exercises{
@@ -194,3 +237,27 @@ app-navigation{
   height: 15px;
   margin-right: 5px;
 }
+
+.info__cockpit{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 3px 1fr;
+  grid-row-gap: 10px;
+  column-gap: 10px;
+
+}
+
+.info__cockpit--line{
+  grid-column: 1/3;
+  grid-row: 1/2;
+  border-bottom: 1px solid black;
+}
+
+.info__cockpit__button{
+  border-radius: 5px;
+  padding: 0px;
+  border: none;
+  height: 40px;
+  cursor: pointer;
+}
+
