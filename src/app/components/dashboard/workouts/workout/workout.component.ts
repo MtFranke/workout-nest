@@ -1,5 +1,5 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
-import {NgForOf, NgIf} from "@angular/common";
+import {NgClass, NgForOf, NgIf} from "@angular/common";
 import {ActivatedRoute, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {WorkoutSchemaModel} from "../models/workout-schema.model";
@@ -17,7 +17,8 @@ import {NavigationComponent} from "../../../navigation/navigation.component";
   imports: [
     NgForOf,
     NgIf,
-    NavigationComponent
+    NavigationComponent,
+    NgClass
   ],
   templateUrl: './workout.component.html',
   styleUrl: './workout.component.css'
@@ -83,11 +84,13 @@ export class WorkoutComponent {
 
     if (foundExercise) {
       foundExercise.completed = true;
+      foundExercise.sets = this.currentExercise.sets;
     } else {
       console.error(`Exercise with id ${this.currentExercise.exercisesId} not found.`);
     }
     this.currentExercise = new WorkedExerciseModel();
     this.currentExerciseName = "";
+    this.finished++;
     console.log(this.workedExercisesModel);
     console.log(this.w);
   }
@@ -101,6 +104,17 @@ export class WorkoutComponent {
       this.router.navigate(['workout-summary', workoutId] );
 
     });
+
+  }
+
+
+  getRepsFromSet(sets: SetModel[]): number {
+    let reps = 0;
+    for (let i = 0; i < sets.length; i++) {
+      reps += Number(sets[i].reps);
+    }
+
+    return reps;
 
   }
 }

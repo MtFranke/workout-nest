@@ -9,13 +9,19 @@
       <button class="exercises__information--save" (click)="onWorkoutEnd()">End & Save</button>
     </div>
     <ul class="exercises-list">
-      <li  class="exercises-list__item"
+      <li [ngClass]="exercise.completed ? 'exercise-completed':'exercises-list__item'"
            *ngFor="let exercise of w.workoutExerciseModel"
-          (click)="onExerciseSelected(exercise.exercisesId)"
-
-      >
+          (click)="onExerciseSelected(exercise.exercisesId)">
         <p class="exercises-list__item--name">{{getExerciseName(exercise.exercisesId)}}</p>
-        <span *ngIf="exercise.completed">FINISHED</span>
+        <div class="exercises-list__item__sets">
+          <p class="exercises-list__item__sets--title"> Sets <b>{{exercise.sets.length}}</b> </p>
+          <img src="assets/icons/layers.svg" alt="refresh_icon" class="icon exercises-list__item__sets--icon">
+        </div>
+        <div class="exercises-list__item__reps">
+          <p class="exercises-list__item__reps--title"> Reps <b>{{getRepsFromSet(exercise.sets)}}</b></p>
+          <img src="assets/icons/refresh.svg" alt="layers_icon" class="icon exercises-list__item__reps--icon">
+        </div>
+        <img src="assets/icons/check-mark.svg" class="icon exercises-list__item--finished" *ngIf="exercise.completed">
       </li>
 
     </ul>
