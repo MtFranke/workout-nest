@@ -1,16 +1,17 @@
   <section class="dashboard__workouts">
-    <div class="dashboard__workouts__title">
-      <div>Workouts</div>
-      <div>_______________________</div>
-    </div>
-    <div class="dashboard__workouts__workouts-list">
-      <div *ngFor="let workout of workouts; let i = index"
-           class="dashboard__workouts__workouts-list--item"
-      (click)="onWorkoutClick(i)">
-        <p class="dashboard__workouts__workouts-list--item--name">{{workout.name}}</p>
+      <div class="dashboard__workouts__title">
+        <h1>Workouts</h1>
       </div>
+      <div class="dashboard__workouts__workouts-list">
+        <div *ngFor="let workout of workouts; let i = index"
+           (click)="onWorkoutClick(i)"
+           class="dashboard__workouts__workouts-list--item"
+          >
+          <p class="dashboard__workouts__workouts-list--item--name">{{workout.name}}</p>
+          <p class="dashboard__workouts__workouts-list--item--muscles">muscles: biceps, triceps</p>
+        </div>
     </div>
-    <div class="dashboard__workouts__sort-by">
+      <div class="dashboard__workouts__sort-by">
       <p>Sport by</p>
       <p>activity</p>
     </div>

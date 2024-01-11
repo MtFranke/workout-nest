@@ -8,33 +8,48 @@
 
 .dashboard__workouts__workouts-list--item
 {
-  height: 100px;
-  width: 100px;
+  height: 120px;
+  width: 120px;
   border: 1px solid black;
   cursor: pointer;
+  border-radius: 10px;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
 }
 
 .dashboard__workouts__title{
-  font-size: 24px;
+  font-size: 2rem;
   font-weight: bolder;
   margin-bottom: 20px;
   grid-column: 1/4;
   justify-self: center;
+  align-self: center;
 }
 
-.icon{
-  height: 30px;
-}
 
 .dashboard__workouts__workouts-list--item--name{
-  text-align: center;
+  font-size: 1rem;
+  line-height: 1rem;
+  grid-row: 1/2;
+  margin: 0px;
+  margin-left: 5px;
+  align-self: end;
+}
+
+.dashboard__workouts__workouts-list--item--muscles{
+  font-size: 0.8rem;
+  grid-row: 2/3;
+  margin: 0px;
+  margin-left: 5px;
+  color: dimgrey;
 }
 
 .dashboard__workouts{
-  margin-top: 150px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 100px 1fr;
+  grid-template-rows: 100px 1fr 1fr;
   gap: 20px;
   justify-self: center;
 }

@@ -3,35 +3,10 @@
   grid-template-columns: auto;
   grid-template-rows: 50px 100vh;
 }
-.dashboard__nav{
-  background-color: #c7c7c7;
-  display: grid;
-  grid-template-columns: 100px auto 120px 40px 150px;
-  grid-template-rows: auto;
-  align-items: center;
-}
 
-app-language{
-  justify-self: end;
-  margin-right: 50px;
-}
-
-.dashboard__workouts{
-  background-color: #ffffff;
-}
-
-.dashboard__nav--logo{
-  width: 50px;
-  height: 50px;
-  background: wheat;
-}
-
-.dashboard__nav--new-workout{
-  width: 70px;
-  justify-self: end;
-  margin-right: 40px;
-}
-
-.icon{
-  height: 30px;
+app-workouts{
+  justify-self: center;
+  grid-column: 1/2;
+  grid-row: 2/3;
+  margin-top: 150px;
 }
