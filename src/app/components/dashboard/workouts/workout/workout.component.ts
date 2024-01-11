@@ -33,6 +33,7 @@ export class WorkoutComponent {
 
   guid: string | null = "";
   finished: number = 0;
+  currentExerciseSetsFinished: number[] = [];
   exercises: ExerciseModel[] = [];
   workedExercisesModel: WorkedExerciseModel[] = [];
   w: WorkoutSchemaTrainingModel = new WorkoutSchemaTrainingModel();
@@ -67,6 +68,7 @@ export class WorkoutComponent {
     const weight = this.weightEl.nativeElement.value;
     const reps = this.repsEl.nativeElement.value;
     this.currentExercise.sets.push(new SetModel(weight, reps));
+
   }
 
   onExerciseSelected(exercise: string) {

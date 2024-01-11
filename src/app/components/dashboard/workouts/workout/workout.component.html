@@ -30,8 +30,8 @@
     <nav class="current-exercise__menu">
       <span class="current-exercise__menu__exercise-name">{{currentExerciseName}}</span>
 
-      <span class="current-exercise__menu__sets">0/3 sets</span>
-      <span class="current-exercise__menu__add-set">+</span>
+      <button class="current-exercise__menu__complete-exercise" (click)="onCompleteExercise()">Complete Exercise</button>
+
     </nav>
     <ul class="current-exercise__sets">
 
@@ -42,18 +42,20 @@
          <input type="text" id="weight" #weight>
        </div>
        <div class="current-exercise__sets__item--reps">
-          <label for="reps"  class="label">Reps</label>
+          <label for="reps"  class="label current-exercise__sets__item--reps--label">Reps</label>
           <input type="text" id="reps" #reps>
         </div>
 
      </li>
-      <li class="current-exercise__sets__item--finished" *ngFor="let x of currentExercise.sets">
+    </ul>
+
+    <ul class="current-exercise__sets__item--finished-box">
+      <li class="current-exercise__sets__item--finished" *ngFor="let x of currentExercise.sets; let i = index;">
         <p class="current-exercise__sets__item--finished--weight">{{x.weight}} kg</p>
         <p class="current-exercise__sets__item--finished--reps">{{x.reps}} reps</p>
-        <p class="current-exercise__sets__item--finished-set-number">Set 1</p>
-        <span class="current-exercise__sets__item--edit">Edit</span>
+        <p class="current-exercise__sets__item--finished-set-number">Set {{ i + 1 }}</p>
+        <span class="current-exercise__sets__item--edit">...</span>
       </li>
     </ul>
-    <button class="current-exercise__complete" (click)="onCompleteExercise()">Complete Exercise</button>
   </section>
 </div>
