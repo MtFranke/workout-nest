@@ -1,0 +1,12 @@
+.container{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100px 500px 100px;
+  margin-top: 150px;
+}
+
+.summary--title{
+  font-size: 3rem;
+  font-weight: bolder;
+  text-align: center;
+}

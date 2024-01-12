@@ -1,9 +1,13 @@
 <app-navigation></app-navigation>
-<p>workout-summary works!</p>
-<p>{{guid}}</p>
-
-<h2>{{workout.name}}</h2>
-<h4>{{workout.date}}</h4>
-<ul>
-  <li *ngFor="let x of volumeModel">{{x.exerciseId}} | {{x.volume}}</li>
-</ul>
+<section class="container">
+  <h1 class="summary--title">Summary</h1>
+  <div></div>
+  <div class="muscles">
+    <h3>Muscles</h3>
+    <ul>
+      <li>biceps</li>
+      <li>triceps</li>
+      <li>forearms</li>
+    </ul>
+  </div>
+</section>
