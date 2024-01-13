@@ -1,13 +1,26 @@
 <app-navigation></app-navigation>
 <section class="container">
   <h1 class="summary--title">Summary</h1>
-  <div></div>
+  <div class="summary">
+  <ul class="summary__exercise__wrapper">
+    <li class="summary__exercise--total">
+      <p class="summary__exercise--total-label">Total Volume:</p>
+      <p class="summary__exercise--total-value">{{totalVolume}}</p>
+    </li>
+    <hr>
+    <li *ngFor="let x of volumeModel" class="summary__exercise">
+      <p class="summary__exercise--name"> {{x.exerciseId}}</p>
+      <p class="summary__exercise--volume"> {{x.volume}}</p>
+    </li>
+  </ul>
+  </div>
   <div class="muscles">
-    <h3>Muscles</h3>
-    <ul>
-      <li>biceps</li>
-      <li>triceps</li>
-      <li>forearms</li>
+    <h3 class="muscles--title">Muscles</h3>
+    <ul class="muscles__wrapper">
+      <li *ngFor="let muscle of muscles" class="muscles__item">
+        <p class="muscles__item--label">{{muscle}}</p>
+        <img src="assets/biceps-icon.png" alt="icon" class="muscles__item--icon">
+      </li>
     </ul>
   </div>
 </section>

@@ -10,3 +10,77 @@
   font-weight: bolder;
   text-align: center;
 }
+
+.summary{
+  justify-self: center;
+
+}
+
+.muscles{
+  justify-self: center ;
+}
+
+.summary__exercise{
+  list-style-type: none;
+  display: grid;
+  grid-template-columns:  400px 40px;
+}
+
+.summary__exercise--name{
+  margin: 0px;
+}
+
+.summary__exercise--volume{
+  margin: 0px;
+}
+.summary__exercise--total{
+  list-style-type: none;
+  font-size: 2rem;
+  display: grid;
+  grid-template-columns:  400px 40px;
+
+}
+
+
+.summary__exercise__wrapper{
+  margin-top: 150px;
+}
+
+.summary__exercise--total-label{
+  margin: 0px;
+}
+
+.summary__exercise--total-value{
+  margin: 0px;
+}
+
+.muscles__item{
+  background-color: #c7c7c7;
+  border-radius: 5px;
+  width: 120px;
+  height: 30px;
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: 80px 40px;
+  align-items: center;
+}
+
+.muscles__wrapper{
+  display: flex;
+  column-gap: 10px;
+  justify-items: start;
+}
+.muscles--title{
+  text-align: center;
+  margin: 0px;
+}
+
+.muscles__item--label{
+  margin: 0px;
+  justify-self: end;
+  margin-right: 5px;
+}
+
+.muscles__item--icon{
+  height: 25px;
+}

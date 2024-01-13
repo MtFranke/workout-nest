@@ -22,6 +22,8 @@ export class WorkoutSummaryComponent implements OnInit{
   workout: WorkoutModel = new WorkoutModel();
   volumeModel: VolumeModel[] = [];
   exercises: ExerciseModel[] = [];
+  totalVolume: number = 0;
+  muscles: string[] = [];
 
   constructor(private route: ActivatedRoute, private http: HttpClient) { }
 
@@ -32,8 +34,6 @@ export class WorkoutSummaryComponent implements OnInit{
         this.exercises = data;
       });
 
-
-
     this.http.get<WorkoutModel>('http://localhost:5213/workout/' + this.guid)
       .subscribe(data => {
         console.log(data);
@@ -43,8 +43,13 @@ export class WorkoutSummaryComponent implements OnInit{
           volume.exerciseId = this.getExerciseName(exercise.exercisesId);
           for (let set of exercise.sets) {
             volume.volume += set.reps * set.weight;
+            this.totalVolume += set.reps * set.weight;
           }
           this.volumeModel.push(volume);
+          if (!this.muscles.includes(this.getExerciseMuscle(exercise.exercisesId)))
+          {
+            this.muscles.push(this.getExerciseMuscle(exercise.exercisesId));
+          }
         }
 
       });
@@ -53,5 +58,8 @@ export class WorkoutSummaryComponent implements OnInit{
 
   getExerciseName(id: string): string {
     return this.exercises.find(x => x.id === id)?.name ?? "";
+  }
+  getExerciseMuscle(id: string): string {
+    return this.exercises.find(x => x.id === id)?.primaryMuscleGroup ?? "";
   }
 }
