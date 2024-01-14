@@ -37,7 +37,7 @@ export class WorkoutComponent {
   exercises: ExerciseModel[] = [];
   workedExercisesModel: WorkedExerciseModel[] = [];
   w: WorkoutSchemaTrainingModel = new WorkoutSchemaTrainingModel();
-
+  workoutSchemaId: string = "";
   // @ts-ignore
   currentExercise: WorkedExerciseModel = null;
   currentExerciseName: string = ""
@@ -46,6 +46,8 @@ export class WorkoutComponent {
 
   ngOnInit(): void {
     this.guid = this.route.snapshot.paramMap.get('guid');
+    // @ts-ignore
+    this.workoutSchemaId = this.guid;
     this.http.get<WorkoutSchemaModel>('http://localhost:5213/workouts-schema/' + this.guid)
       .subscribe(data => {
         console.log(data);
@@ -98,7 +100,7 @@ export class WorkoutComponent {
   }
 
   onWorkoutEnd() {
-    const body = new SaveWorkoutModel(this.w.name, this.workedExercisesModel);
+    const body = new SaveWorkoutModel(this.w.name, this.workoutSchemaId, this.workedExercisesModel);
     let workoutId;
     this.http.post<string>('http://localhost:5213/workout', body).subscribe(data => {
       console.log(data);

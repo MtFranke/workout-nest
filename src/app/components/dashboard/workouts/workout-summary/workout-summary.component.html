@@ -6,11 +6,23 @@
     <li class="summary__exercise--total">
       <p class="summary__exercise--total-label">Total Volume:</p>
       <p class="summary__exercise--total-value">{{totalVolume}}</p>
+      <p class="summary__exercise--prev-total-value">{{geTotalVolumeFromPreviousWorkout()}}</p>
+      <div class="summary__exercise--total-value-box">
+        <img src="assets/icons/arrow-up-alt-filled-green.png" alt="arrow_increase" class="summary__exercise--total-value-percentage-icon-increase">
+        <p class="summary__exercise--total-value-percentage">{{getIncrease(totalVolume, geTotalVolumeFromPreviousWorkout())}} %</p>
+      </div>
+
     </li>
     <hr>
     <li *ngFor="let x of volumeModel" class="summary__exercise">
-      <p class="summary__exercise--name"> {{x.exerciseId}}</p>
+      <p class="summary__exercise--name"> {{x.exerciseName}}</p>
       <p class="summary__exercise--volume"> {{x.volume}}</p>
+      <p class="summary__exercise--prev-volume">{{getVolumeFromPreviousWorkout(x.exerciseId)}}</p>
+      <div class="summary__exercise--percentage">
+        <img src="assets/icons/arrow-up-alt-filled-green.png" alt="arrow_increase" class="summary__exercise--prev-volume--icon">
+        <p class="summary__exercise--percentage--val">{{getIncrease(x.volume, getVolumeFromPreviousWorkout(x.exerciseId))}} %</p>
+
+      </div>
     </li>
   </ul>
   </div>
