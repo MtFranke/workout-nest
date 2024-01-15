@@ -1,15 +1,29 @@
 <app-navigation></app-navigation>
 <section class="container">
-  <h1 class="summary--title">Summary</h1>
+  <div class="summary-top">
+    <h1 class="summary--title">Summary</h1>
+    <div class="summary--return" (click)="onReturnClick()">
+      <p class="summary--return--text">dashboard</p>
+      <span>------></span>
+    </div>
+  </div>
   <div class="summary">
   <ul class="summary__exercise__wrapper">
     <li class="summary__exercise--total">
       <p class="summary__exercise--total-label">Total Volume:</p>
       <p class="summary__exercise--total-value">{{totalVolume}}</p>
-      <p class="summary__exercise--prev-total-value">{{geTotalVolumeFromPreviousWorkout()}}</p>
+      <p class="summary__exercise--prev-total-value">{{(gains.totalVolume)}}</p>
       <div class="summary__exercise--total-value-box">
-        <img src="assets/icons/arrow-up-alt-filled-green.png" alt="arrow_increase" class="summary__exercise--total-value-percentage-icon-increase">
-        <p class="summary__exercise--total-value-percentage">{{getIncrease(totalVolume, geTotalVolumeFromPreviousWorkout())}} %</p>
+        <img
+          [src]="gains.totalVolume < totalVolume ? 'assets/icons/arrow-up-alt-filled-green.png': 'assets/icons/arrow-down-alt-filled-red.png'"
+          height="20px" width="20px"
+          alt="arrow_increase"
+          class="summary__exercise--total-value-percentage-icon-increase">
+        <p
+          [ngClass]="gains.increase > 0 ? 'summary__exercise--total-value-percentage': 'summary__exercise--total-value-percentage-red'"
+          class="summary__exercise--total-value-percentage">
+          {{gains.increase}} %
+        </p>
       </div>
 
     </li>
@@ -19,8 +33,13 @@
       <p class="summary__exercise--volume"> {{x.volume}}</p>
       <p class="summary__exercise--prev-volume">{{getVolumeFromPreviousWorkout(x.exerciseId)}}</p>
       <div class="summary__exercise--percentage">
-        <img src="assets/icons/arrow-up-alt-filled-green.png" alt="arrow_increase" class="summary__exercise--prev-volume--icon">
-        <p class="summary__exercise--percentage--val">{{getIncrease(x.volume, getVolumeFromPreviousWorkout(x.exerciseId))}} %</p>
+        <img *ngIf="getPercentageIncrease(x.exerciseId) != 0"
+             [src]=" getArrowIcon(getPercentageIncrease(x.exerciseId))" height="15px" width="15px" alt="arrow_increase" >
+        <img *ngIf="getPercentageIncrease(x.exerciseId) == 0"
+             [src]=" getArrowIcon(getPercentageIncrease(x.exerciseId))" height="25px" width="25px" alt="new-icon" >
+
+        <p *ngIf="getPercentageIncrease(x.exerciseId) != 0" [ngClass]="getPercentageIncrease(x.exerciseId) > 0 ? 'summary__exercise--percentage--val': 'summary__exercise--percentage--val--red'"
+         >{{getPercentageIncrease(x.exerciseId)}} %</p>
 
       </div>
     </li>

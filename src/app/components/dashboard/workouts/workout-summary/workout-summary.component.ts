@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {WorkoutModel} from "../models/workout.model";
-import {NgForOf} from "@angular/common";
-import {VolumeModel} from "../models/volume.model";
+import {NgClass, NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
+import {VolumeModel, WorkoutModelOuter} from "../models/volume.model";
 import {ExerciseModel} from "../models/exercise.model";
 import {NavigationComponent} from "../../../navigation/navigation.component";
 import {GainsModel} from "./gains.model";
@@ -13,7 +13,10 @@ import {GainsModel} from "./gains.model";
   standalone: true,
   imports: [
     NgForOf,
-    NavigationComponent
+    NavigationComponent,
+    NgClass,
+    NgOptimizedImage,
+    NgIf
   ],
   templateUrl: './workout-summary.component.html',
   styleUrl: './workout-summary.component.css'
@@ -25,9 +28,9 @@ export class WorkoutSummaryComponent implements OnInit{
   exercises: ExerciseModel[] = [];
   totalVolume: number = 0;
   muscles: string[] = [];
-  gains: GainsModel[] = [];
+  gains: WorkoutModelOuter = new WorkoutModelOuter();
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) { }
+  constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
     this.guid = this.route.snapshot.paramMap.get('guid');
@@ -57,7 +60,7 @@ export class WorkoutSummaryComponent implements OnInit{
 
       });
 
-    this.http.get<GainsModel[]>('http://localhost:5213/workout/gains')
+    this.http.get<WorkoutModelOuter>('http://localhost:5213/workout/gains')
       .subscribe(data => {
         this.gains = data;
         console.log(this.gains);
@@ -72,31 +75,38 @@ export class WorkoutSummaryComponent implements OnInit{
     return this.exercises.find(x => x.id === id)?.primaryMuscleGroup ?? "";
   }
 
-  geTotalVolumeFromPreviousWorkout(): number {
-    let totalVolume = 0;
-    for (let gain of this.gains) {
-      totalVolume+= gain.volume;
-
-    }
-
-    return totalVolume;
-  }
-
-  getIncrease(totalVolume: number, previousTotal: number) {
-    const fst_num = previousTotal;
-    const snd_num = totalVolume;
-
-    let percentage = ((snd_num -fst_num) / fst_num) * 100;
-    return percentage;
-  }
 
   getVolumeFromPreviousWorkout(exerciseId: string) {
     let volume = 0;
-    for (let gain of this.gains) {
+    for (let gain of this.gains.volumes) {
       if (gain.exerciseId === exerciseId) {
         volume = gain.volume;
       }
     }
     return volume;
+  }
+
+  getPercentageIncrease(exerciseId: string) {
+    let increase = 0;
+    for (let gain of this.gains.volumes) {
+      if (gain.exerciseId === exerciseId) {
+        increase = gain.increase;
+      }
+    }
+    return increase;
+  }
+
+  getArrowIcon(percentageIncrease: number) {
+    if(percentageIncrease > 0){
+      return 'assets/icons/arrow-up-alt-filled-green.png';
+    }
+    if(percentageIncrease < 0) {
+      return 'assets/icons/arrow-down-alt-filled-red.png';
+    }
+    return 'assets/icons/new-1.png';
+  }
+
+  onReturnClick() {
+    this.router.navigate(['/dashboard']);
   }
 }
