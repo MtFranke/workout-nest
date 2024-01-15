@@ -46,4 +46,8 @@ export class NavigationComponent implements OnInit{
     this.router.navigate(['new-workout']);
 
   }
+
+  onLogout() {
+    this.authService.logout();
+  }
 }
