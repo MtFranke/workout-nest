@@ -6,7 +6,7 @@ import {NgClass, NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
 import {VolumeModel, WorkoutModelOuter} from "../models/volume.model";
 import {ExerciseModel} from "../models/exercise.model";
 import {NavigationComponent} from "../../../navigation/navigation.component";
-import {GainsModel} from "./gains.model";
+import {environment} from "../../../../../environment/environment";
 
 @Component({
   selector: 'app-workout-summary',
@@ -34,12 +34,12 @@ export class WorkoutSummaryComponent implements OnInit{
 
   ngOnInit() {
     this.guid = this.route.snapshot.paramMap.get('guid');
-    this.http.get<ExerciseModel[]>('http://localhost:5213/exercises')
+    this.http.get<ExerciseModel[]>(`${environment.workoutNestApiUrl}/exercises`)
       .subscribe(data => {
         this.exercises = data;
       });
 
-    this.http.get<WorkoutModel>('http://localhost:5213/workout/' + this.guid)
+    this.http.get<WorkoutModel>(`${environment.workoutNestApiUrl}/workout/` + this.guid)
       .subscribe(data => {
         console.log(data);
         this.workout = data;
@@ -60,7 +60,7 @@ export class WorkoutSummaryComponent implements OnInit{
 
       });
 
-    this.http.get<WorkoutModelOuter>('http://localhost:5213/workout/gains')
+    this.http.get<WorkoutModelOuter>(`${environment.workoutNestApiUrl}/workout/gains`)
       .subscribe(data => {
         this.gains = data;
         console.log(this.gains);

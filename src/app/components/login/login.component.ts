@@ -4,6 +4,7 @@ import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} fr
 import {HttpClient} from "@angular/common/http";
 import {AuthService} from "../../services/auth.service";
 import {NavigationComponent} from "../navigation/navigation.component";
+import {environment} from "../../../environment/environment";
 
 @Component({
   selector: 'app-login',
@@ -44,8 +45,7 @@ export class LoginComponent implements OnInit{
 
   onSubmit() {
 
-    //const url = 'https://workoutnest.azurewebsites.net/auth/login';
-    const url = 'http://localhost:5213/auth/login';
+    const url = `${environment.workoutNestApiUrl}/auth/login`;
     const payload = {
       'username' : this.loginForm.value['username'],
       'password' : this.loginForm.value['password']

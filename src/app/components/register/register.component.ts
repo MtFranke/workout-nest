@@ -4,6 +4,7 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {NgIf} from "@angular/common";
 import {Router} from "@angular/router";
 import {NavigationComponent} from "../navigation/navigation.component";
+import {environment} from "../../../environment/environment";
 
 
 @Component({
@@ -41,8 +42,7 @@ export class RegisterComponent implements OnInit{
     return c.value.password === c.value.confirm ? null : { notSame: true };
   }
   onSubmit() {
-    const url = 'https://workoutnest.azurewebsites.net/auth/register';
-    // const url = 'http://localhost:5213/auth/register';
+    const url = `${environment.workoutNestApiUrl}/auth/register`;
     this.username = this.registerForm.value['username'];
     const payload = {
       'username' : this.registerForm.value['username'],
