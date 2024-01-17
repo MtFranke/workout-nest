@@ -31,13 +31,21 @@
   margin-top: 100px;
   justify-self: center;
   display: grid;
-  grid-template-rows: 50px;
+  grid-template-rows: 120px;
+  grid-template-columns: 500px;
+  height: 400px;
+  border-radius: 20px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
+.login__login-panel__card__form{
+  align-self: center;
+  justify-self: center;
+}
 
 input{
-  width: 220px;
-  height: 25px;
+  width: 320px;
+  height: 30px;
 }
 
 .login__login-panel__card__form__input--password{
@@ -45,13 +53,14 @@ input{
 }
 
 .login__login-panel__card__form__button{
-  width: 228px;
-  height: 25px;
+  width: 330px;
+  height: 30px;
 }
 
 .login__login-panel__card--title{
   text-align: center;
   align-self: center;
+  font-size: 3rem;
 }
 
 .login__login-panel__card__form--forgot-password{
