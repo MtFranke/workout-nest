@@ -9,11 +9,29 @@
   font-size: 3rem;
   font-weight: bolder;
   text-align: center;
+  grid-column: 1/2;
+  justify-self: end;
 }
 
 .summary{
   justify-self: center;
 
+}
+
+.summary-top{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 250px;
+}
+
+.summary--return--text{
+  margin: 0px;
+}
+.summary--return{
+  cursor: pointer;
+  grid-column: 2/3;
+  align-self: center;
+  margin-left: 150px;
 }
 
 .muscles{
@@ -23,7 +41,7 @@
 .summary__exercise{
   list-style-type: none;
   display: grid;
-  grid-template-columns:  400px 40px;
+  grid-template-columns:  400px 100px 100px 150px;
 }
 
 .summary__exercise--name{
@@ -32,12 +50,37 @@
 
 .summary__exercise--volume{
   margin: 0px;
+  margin-left: 15px;
+}
+.summary__exercise--prev-volume{
+  margin: 0px;
+  margin-left: 10px;
+  color: gray;
+
+}
+.summary__exercise--percentage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.summary__exercise--percentage--val{
+  font-size: 1rem;
+  color: #009427;
+  margin: 0px;
+}
+.summary__exercise--percentage--val--red{
+  font-size: 1rem;
+  color: red;
+  margin: 0px;
+}
+.summary__exercise--prev-volume--icon{
+  height: 1rem;
 }
 .summary__exercise--total{
   list-style-type: none;
   font-size: 2rem;
   display: grid;
-  grid-template-columns:  400px 40px;
+  grid-template-columns:  400px 100px 100px 150px;
 
 }
 
@@ -83,4 +126,31 @@
 
 .muscles__item--icon{
   height: 25px;
+}
+
+.summary__exercise--prev-total-value{
+  color: gray;
+  padding: 0px;
+  margin: 0px;
+}
+
+.summary__exercise--total-value-percentage{
+  margin: 0px;
+  color: #009427;
+  font-size: 1.2rem;
+}
+
+.summary__exercise--total-value-percentage-red{
+  margin: 0px;
+  color: #f10000;
+  font-size: 1.2rem;
+}
+
+.summary__exercise--total-value-percentage-icon-increase{
+  height: 1.2rem;
+}
+.summary__exercise--total-value-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

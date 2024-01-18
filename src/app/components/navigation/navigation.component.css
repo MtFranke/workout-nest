@@ -2,7 +2,7 @@
   height: 50px;
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: 100px 1fr 20px 20px 150px;
+  grid-template-columns: 100px 1fr 30px 30px 100px 30px;
 }
 
 
@@ -43,7 +43,7 @@
 }
 
 .icon{
-  height: 20px;
+  height: 30px;
 
 }
 

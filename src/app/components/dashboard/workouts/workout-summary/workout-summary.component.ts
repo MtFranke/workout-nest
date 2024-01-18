@@ -1,18 +1,22 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {WorkoutModel} from "../models/workout.model";
-import {NgForOf} from "@angular/common";
-import {VolumeModel} from "../models/volume.model";
+import {NgClass, NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
+import {VolumeModel, WorkoutModelOuter} from "../models/volume.model";
 import {ExerciseModel} from "../models/exercise.model";
 import {NavigationComponent} from "../../../navigation/navigation.component";
+import {environment} from "../../../../../environment/environment";
 
 @Component({
   selector: 'app-workout-summary',
   standalone: true,
   imports: [
     NgForOf,
-    NavigationComponent
+    NavigationComponent,
+    NgClass,
+    NgOptimizedImage,
+    NgIf
   ],
   templateUrl: './workout-summary.component.html',
   styleUrl: './workout-summary.component.css'
@@ -24,23 +28,25 @@ export class WorkoutSummaryComponent implements OnInit{
   exercises: ExerciseModel[] = [];
   totalVolume: number = 0;
   muscles: string[] = [];
+  gains: WorkoutModelOuter = new WorkoutModelOuter();
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) { }
+  constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
     this.guid = this.route.snapshot.paramMap.get('guid');
-    this.http.get<ExerciseModel[]>('http://localhost:5213/exercises')
+    this.http.get<ExerciseModel[]>(`${environment.workoutNestApiUrl}/exercises`)
       .subscribe(data => {
         this.exercises = data;
       });
 
-    this.http.get<WorkoutModel>('http://localhost:5213/workout/' + this.guid)
+    this.http.get<WorkoutModel>(`${environment.workoutNestApiUrl}/workout/` + this.guid)
       .subscribe(data => {
         console.log(data);
         this.workout = data;
         for (let exercise of this.workout.exercises) {
           const volume = new VolumeModel();
-          volume.exerciseId = this.getExerciseName(exercise.exercisesId);
+          volume.exerciseName = this.getExerciseName(exercise.exercisesId);
+          volume.exerciseId = exercise.exercisesId;
           for (let set of exercise.sets) {
             volume.volume += set.reps * set.weight;
             this.totalVolume += set.reps * set.weight;
@@ -54,6 +60,12 @@ export class WorkoutSummaryComponent implements OnInit{
 
       });
 
+    this.http.get<WorkoutModelOuter>(`${environment.workoutNestApiUrl}/workout/gains`)
+      .subscribe(data => {
+        this.gains = data;
+        console.log(this.gains);
+      });
+
   }
 
   getExerciseName(id: string): string {
@@ -61,5 +73,40 @@ export class WorkoutSummaryComponent implements OnInit{
   }
   getExerciseMuscle(id: string): string {
     return this.exercises.find(x => x.id === id)?.primaryMuscleGroup ?? "";
+  }
+
+
+  getVolumeFromPreviousWorkout(exerciseId: string) {
+    let volume = 0;
+    for (let gain of this.gains.volumes) {
+      if (gain.exerciseId === exerciseId) {
+        volume = gain.volume;
+      }
+    }
+    return volume;
+  }
+
+  getPercentageIncrease(exerciseId: string) {
+    let increase = 0;
+    for (let gain of this.gains.volumes) {
+      if (gain.exerciseId === exerciseId) {
+        increase = gain.increase;
+      }
+    }
+    return increase;
+  }
+
+  getArrowIcon(percentageIncrease: number) {
+    if(percentageIncrease > 0){
+      return 'assets/icons/arrow-up-alt-filled-green.png';
+    }
+    if(percentageIncrease < 0) {
+      return 'assets/icons/arrow-down-alt-filled-red.png';
+    }
+    return 'assets/icons/new-1.png';
+  }
+
+  onReturnClick() {
+    this.router.navigate(['/dashboard']);
   }
 }

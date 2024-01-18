@@ -1,7 +1,7 @@
 <section class="navigation-menu">
   <div class="navigation-menu--logo pointer" (click)="onLogoClick()">WorkoutNEST</div>
   <div *ngIf="!isDashboard && !isLandingPage"></div>
-  <div class="dashboard__menu" *ngIf="isLandingPage">
+  <div *ngIf="isLandingPage"class="dashboard__menu" >
     <button (click)="onLoginClick()">Login</button>
     <button (click)="onRegisterClick()">Register</button>
   </div>
@@ -15,5 +15,5 @@
     <div class="navigation-menu__language-panel__box"><span class="navigation-menu__language-panel__box--title">EN</span></div>
     <img src="assets/arrow_down.png" class="icon pointer">
   </div>
-
+  <img src="assets/icons/log-out-3.svg" alt="" class="icon pointer" (click)="onLogout()">
 </section>

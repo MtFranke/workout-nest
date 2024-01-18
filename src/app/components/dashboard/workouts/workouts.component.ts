@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {WorkoutSchemaModel} from "./models/workout-schema.model";
 import {NgForOf, NgIf} from "@angular/common";
 import {Router} from "@angular/router";
+import {environment} from "../../../../environment/environment";
 
 @Component({
   selector: 'app-workouts',
@@ -24,7 +25,7 @@ export class WorkoutsComponent implements OnInit{
 
   ngOnInit() {
     this.http
-      .get<WorkoutSchemaModel[]>('http://localhost:5213/workouts-schema')
+      .get<WorkoutSchemaModel[]>(`${environment.workoutNestApiUrl}/workouts-schema`)
       .subscribe((x)=> {
         console.log(x);
         this.workouts = x;

@@ -5,6 +5,7 @@ import {NgForOf, NgIf} from "@angular/common";
 import {WorkoutSchemaModel} from "../models/workout-schema.model";
 import {Router} from "@angular/router";
 import {NavigationComponent} from "../../../navigation/navigation.component";
+import {environment} from "../../../../../environment/environment";
 
 @Component({
   selector: 'app-new-workout',
@@ -31,7 +32,7 @@ export class NewWorkoutComponent implements OnInit{
   constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
-  this.http.get<ExerciseModel[]>('http://localhost:5213/exercises').subscribe(data => {
+  this.http.get<ExerciseModel[]>(`${environment.workoutNestApiUrl}/exercises`).subscribe(data => {
       this.exercices = data;
       console.log(this.exercices);
     });
@@ -58,7 +59,7 @@ export class NewWorkoutComponent implements OnInit{
     let workoutSchema = new WorkoutSchemaModel();
     workoutSchema.name = this.workoutNameEl.nativeElement.value;
     workoutSchema.exercisesId = this.selectedExercises.map(x => x.id);
-    this.http.post('http://localhost:5213/workouts-schema', workoutSchema).subscribe(data => {
+    this.http.post(`${environment.workoutNestApiUrl}/workouts-schema`, workoutSchema).subscribe(data => {
       console.log(data);
       this.router.navigate(['dashboard']);
     });
