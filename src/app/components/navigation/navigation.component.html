@@ -5,15 +5,15 @@
     <button (click)="onLoginClick()">Login</button>
     <button (click)="onRegisterClick()">Register</button>
   </div>
-  <div class="dashboard__new-routine" *ngIf="isDashboard">
+  <div *ngIf="isDashboard" class="dashboard__new-routine" >
     <button class="pointer" (click)="onNewRoutine()">New routine</button>
   </div>
-  <img src="assets/9035117_person_icon.svg" alt="user_menu_icon" class="icon pointer navigation-menu--user-mode" *ngIf="isUserLoggedIn">
-  <img src="assets/moon_stars_fill_icon.svg" alt="dark_mode_icon" class="icon navigation-menu--dark-mode pointer">
-  <div class="navigation-menu__language-panel">
-    <img src="assets/103571_globe_icon.svg" class="icon navigation-menu__language-panel--glob-icon">
-    <div class="navigation-menu__language-panel__box"><span class="navigation-menu__language-panel__box--title">EN</span></div>
-    <img src="assets/arrow_down.png" class="icon pointer">
-  </div>
-  <img src="assets/icons/log-out-3.svg" alt="" class="icon pointer" (click)="onLogout()">
+<!--  <img src="assets/9035117_person_icon.svg" alt="user_menu_icon" class="icon pointer navigation-menu&#45;&#45;user-mode" *ngIf="isUserLoggedIn">-->
+<!--  <img src="assets/moon_stars_fill_icon.svg" alt="dark_mode_icon" class="icon navigation-menu&#45;&#45;dark-mode pointer">-->
+<!--  <div class="navigation-menu__language-panel">-->
+<!--    <img src="assets/103571_globe_icon.svg" class="icon navigation-menu__language-panel&#45;&#45;glob-icon">-->
+<!--    <div class="navigation-menu__language-panel__box"><span class="navigation-menu__language-panel__box&#45;&#45;title">EN</span></div>-->
+<!--    <img src="assets/arrow_down.png" class="icon pointer">-->
+<!--  </div>-->
+  <img *ngIf="isUserLoggedIn" src="assets/icons/log-out-3.svg" alt="logout-icon" class="icon pointer" (click)="onLogout()">
 </section>
