@@ -18,31 +18,40 @@
 
 }
 
-app-language{
-  justify-self: end;
-  margin-right: 50px;
-}
 
 input{
-  width: 220px;
-  height: 25px;
+  width: 320px;
+  height: 30px;
 }
 
 .register__register-panel__card{
   margin-top: 100px;
   justify-self: center;
+  width: 500px;
+  border-radius: 10px;
+  height: 600px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+
 
 }
 
 .register__register-panel__card--title{
   text-align: center;
   font-weight: bolder;
-  font-size: 24px;
-  margin-bottom: 24px;
+  font-size: 3rem;
+  margin-top: 20px;
+  margin-bottom: 50px;
 }
 
 .register__register-panel__card__form{
   display: grid;
-  grid-template-columns: 228px;
+  width: 500px;
   gap: 20px;
+  justify-content: center;
+}
+
+
+.register__register-panel__card__save-button{
+  width: 330px;
+  height: 30px;
 }

@@ -1,6 +1,5 @@
 <div class="register">
   <div class="register__image-panel">
-
   </div>
   <div class="register__register-panel">
     <app-navigation></app-navigation>
@@ -36,7 +35,7 @@
             </div>
           </div>
 
-          <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Register</button>
+          <button type="submit" class="register__register-panel__card__save-button" [disabled]="!registerForm.valid">Register</button>
         </form>
         <div *ngIf="successfullyRegistered">
           <p>Dear {{username}}</p>
