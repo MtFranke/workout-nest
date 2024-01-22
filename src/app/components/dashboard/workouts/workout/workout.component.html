@@ -13,11 +13,11 @@
            *ngFor="let exercise of w.workoutExerciseModel"
           (click)="onExerciseSelected(exercise.exercisesId)">
         <p class="exercises-list__item--name">{{getExerciseName(exercise.exercisesId)}}</p>
-        <div class="exercises-list__item__sets">
+        <div *ngIf="exercise.completed" class="exercises-list__item__sets">
           <p class="exercises-list__item__sets--title"> Sets <b>{{exercise.sets.length}}</b> </p>
           <img src="assets/icons/layers.svg" alt="refresh_icon" class="icon exercises-list__item__sets--icon">
         </div>
-        <div class="exercises-list__item__reps">
+        <div *ngIf="exercise.completed" class="exercises-list__item__reps">
           <p class="exercises-list__item__reps--title"> Reps <b>{{getRepsFromSet(exercise.sets)}}</b></p>
           <img src="assets/icons/refresh.svg" alt="layers_icon" class="icon exercises-list__item__reps--icon">
         </div>
