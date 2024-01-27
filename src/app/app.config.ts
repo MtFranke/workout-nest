@@ -6,11 +6,18 @@ import {httpTokenAuthInterceptor} from "./interceptors/token-auth.interceptor";
 import {AuthService} from "./services/auth.service";
 import {JwtHelperService, JwtModule} from "@auth0/angular-jwt";
 
+export function tokenGetter() {
+  return localStorage.getItem("access_token");
+}
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    JwtHelperService, AuthService,
+    JwtHelperService,
+    AuthService,
     provideHttpClient(withInterceptors([httpTokenAuthInterceptor])),
-    importProvidersFrom(JwtModule.forRoot({}))
+    importProvidersFrom(JwtModule.forRoot({  config: {
+        tokenGetter: tokenGetter
+      },}))
   ],
 };

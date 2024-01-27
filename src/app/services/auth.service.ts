@@ -7,7 +7,9 @@ export class AuthService
 {
   private accessToken: string | null = null;
 
-  constructor(public jwtHelper: JwtHelperService, private router: Router) {
+  constructor(
+    public jwtHelper: JwtHelperService,
+    private router: Router) {
   }
 
   public isAuthenticated(): boolean {
