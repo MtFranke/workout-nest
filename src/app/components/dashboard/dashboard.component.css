@@ -1,12 +1,22 @@
 .dashboard{
   display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: 50px 100vh;
+  grid-template-columns: 40vw 55vw;
+  grid-column-gap: 20px;
+  grid-template-rows: 50px auto;
+
 }
 
 app-workouts{
-  justify-self: center;
-  grid-column: 1/2;
+  grid-column: 2/3;
   grid-row: 2/3;
-  margin-top: 150px;
+}
+
+app-feed{
+  grid-row: 2/3;
+  grid-column: 1/2;
+
+}
+
+app-navigation{
+  grid-column: 1/3;
 }

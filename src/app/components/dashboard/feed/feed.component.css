@@ -1,0 +1,31 @@
+.container-feed{
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  margin-left: 20px;
+  display: grid;
+  justify-content: center;
+  grid-row-gap: 20px;
+}
+.container-feed__items-wrapper__item{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  width: 450px;
+  height: 80px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.container-feed__title{
+  text-align: center;
+  font-size: 2rem;
+  margin: 0px;
+  margin-top: 10px;
+}
+
+.container-feed__items-wrapper{
+
+}
+
+.container-feed__items-wrapper__item > p {
+  margin: 0px;
+}

@@ -3,6 +3,7 @@ body{
   background-color: white;
   min-height: 100vh;
   font-family: 'Poppins';
+  margin: 0px;
 }
 
 @font-face {

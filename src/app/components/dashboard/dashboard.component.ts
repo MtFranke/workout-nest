@@ -4,6 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {NgForOf} from "@angular/common";
 import {WorkoutsComponent} from "./workouts/workouts.component";
 import {NavigationComponent} from "../navigation/navigation.component";
+import {FeedComponent} from "./feed/feed.component";
 
 
 @Component({
@@ -12,7 +13,8 @@ import {NavigationComponent} from "../navigation/navigation.component";
   imports: [
     NgForOf,
     WorkoutsComponent,
-    NavigationComponent
+    NavigationComponent,
+    FeedComponent
 
   ],
   templateUrl: './dashboard.component.html',
