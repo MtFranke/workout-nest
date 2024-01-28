@@ -1,11 +1,11 @@
 <section class="container-feed">
   <h1 class="container-feed__title">Feed</h1>
   <div class="container-feed__items-wrapper">
-    <div class="container-feed__items-wrapper__item">
-      <p>28.01.2024</p>
-      <p>2 days ago</p>
-      <p>1221</p>
-      <p>Workout 1</p>
+    <div class="container-feed__items-wrapper__item" *ngFor="let feed of data">
+      <p class="container-feed__items-wrapper__item--date">{{moment(feed.workoutDate).format('DD.MM.YYYY')}}</p>
+      <p class="container-feed__items-wrapper__item--days-passed">{{feed.daysPassed == 0 ? "Today" : feed.daysPassed}}</p>
+      <p class="container-feed__items-wrapper__item--value">{{feed.value}}</p>
+      <p class="container-feed__items-wrapper__item--name">{{feed.name}}</p>
     </div>
   </div>
 </section>
